@@ -14,12 +14,11 @@ public class ProjectileLauncher : MonoBehaviour
 
     void Start()
     {
-        transform.localEulerAngles = new Vector3(0, 0, -aimAngle); //assuming rotations are clockwise from the x axis
+        spawnReference.localEulerAngles = new Vector3(0, 0, -aimAngle); //assuming rotations are clockwise from the x axis
     }
 
     public void Update()
     {
-        transform.localEulerAngles = new Vector3(0, 0, -aimAngle);
 
         //simple implementation to call shoot function every "fire rate" seconds
         time += Time.deltaTime;

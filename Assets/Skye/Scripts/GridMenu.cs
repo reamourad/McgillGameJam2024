@@ -62,12 +62,13 @@ public class GridMenu : MonoBehaviour
         {
             for (int j = 0; j < col; j++)
             {
-                if (instances[i, j].GetComponent<Blocks>().blockReferencing == null)
-                    continue;
+                if (instances[i, j].GetComponent<Blocks>().blockReferencing != null)
+                {
+                    GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, new Vector3(originalPosition.x + index_j, originalPosition.y + index_i), Quaternion.identity);
+                    obj.transform.parent = objectParent.transform;
+                }
 
-                GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, new Vector3(originalPosition.x + index_j, originalPosition.y + index_i), Quaternion.identity);
-                obj.transform.parent = objectParent.transform;
-                index_j -= 1.5f;
+                index_j += 1.5f;
             }
             index_j = 0;
             index_i -= 1.5f;
