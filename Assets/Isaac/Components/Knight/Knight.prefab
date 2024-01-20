@@ -151,7 +151,7 @@ MonoBehaviour:
   height: 1
   width: 1
   arrayOfSprites:
-  - {fileID: 21300000, guid: cce2ba397dd5eac4c801a193d4a65d45, type: 3}
+  - {fileID: 21300000, guid: 7982b2efb31898a48a6f67a5edf33306, type: 3}
 --- !u!114 &4981070444988148091
 MonoBehaviour:
   m_ObjectHideFlags: 0

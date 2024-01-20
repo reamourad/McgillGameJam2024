@@ -802,12 +802,19 @@ MonoBehaviour:
   blockSelectingButton: {fileID: 1153228009388491523, guid: cbadf031f049ec34bb4aaccb3b0b7ebf, type: 3}
   blocks:
   - {fileID: 7823155090755333476, guid: 9ddba7f38b580cb42af5d54bcd4e3ac8, type: 3}
-  - {fileID: 3934384529265062771, guid: e273a0908e4fe6d4a9c167be46436555, type: 3}
-  - {fileID: 1278977942150764502, guid: 5c87cfe076c0c6c4fb30d19c3f182a72, type: 3}
   - {fileID: 6637950185380917900, guid: 83ff1858ce3d2f4488ab0adee2c20b07, type: 3}
+  - {fileID: 1278977942150764502, guid: 5c87cfe076c0c6c4fb30d19c3f182a72, type: 3}
+  - {fileID: 3934384529265062771, guid: e273a0908e4fe6d4a9c167be46436555, type: 3}
   - {fileID: 5741716934694201052, guid: 9a1e50d7ba7b0924aaecde8d16ef6fc3, type: 3}
-  lastClickedSprite: {fileID: 0}
+  blockHealth:
+  - 3
+  - 2
+  - 1
+  - 2
+  - 5
+  lastClickedSprites: []
   blockSelected: {fileID: 0}
+  gridMenu: {fileID: 450980299}
 --- !u!4 &965142022
 Transform:
   m_ObjectHideFlags: 0

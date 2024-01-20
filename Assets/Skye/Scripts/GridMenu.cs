@@ -64,8 +64,14 @@ public class GridMenu : MonoBehaviour
             {
                 if (instances[i, j].GetComponent<Blocks>().blockReferencing != null)
                 {
-                    GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, new Vector3(originalPosition.x + index_j, originalPosition.y + index_i), Quaternion.identity);
+                    GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, new Vector3(originalPosition.x + index_j, originalPosition.y + index_i), instances[i,j].transform.rotation);
                     obj.transform.parent = objectParent.transform;
+
+                    int index = System.Array.IndexOf(dataManager.blocks, instances[i, j].GetComponent<Blocks>().blockReferencing);
+                    Debug.Log(index);
+
+                    obj.AddComponent<HealthComponent>();
+                    obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
                 }
                 index_j += 1.5f;
             }
