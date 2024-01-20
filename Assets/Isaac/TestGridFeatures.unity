@@ -329,6 +329,7 @@ MonoBehaviour:
   originalPosition: {x: -2.5, y: 2.5, z: 0}
   dataManager: {fileID: 965142021}
   prefab: {fileID: 1153228009388491523, guid: 92bb063da3257e94fb312e040e7fa261, type: 3}
+  canvas: {fileID: 1592267208}
   gridSpacing: 1.5
 --- !u!1 &501643595
 GameObject:
@@ -1333,3 +1334,4 @@ MonoBehaviour:
   col: 3
   originalPosition: {x: -7, y: 3, z: 0}
   dataManager: {fileID: 965142021}
+  gridMenu: {fileID: 0}

@@ -15,6 +15,7 @@ public class GridMenu : MonoBehaviour
     public DataManager dataManager;
     public GameObject prefab;
 
+    public Canvas canvas; 
     public float gridSpacing;
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,7 @@ public class GridMenu : MonoBehaviour
 
     public void spawnObjects()
     {
+        canvas.enabled = false; 
         GameObject objectParent = new GameObject();
         objectParent.gameObject.name = "Parent";
 
