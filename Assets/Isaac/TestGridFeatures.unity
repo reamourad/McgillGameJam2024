@@ -416,8 +416,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 46.53
+  m_fontSizeBase: 46.53
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -503,8 +503,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210.19997, y: -62.2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -628, y: -342}
+  m_SizeDelta: {x: 310.18, y: 99.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &720660961
 MonoBehaviour:
@@ -805,7 +805,7 @@ MonoBehaviour:
   - {fileID: 3934384529265062771, guid: e273a0908e4fe6d4a9c167be46436555, type: 3}
   - {fileID: 1278977942150764502, guid: 5c87cfe076c0c6c4fb30d19c3f182a72, type: 3}
   - {fileID: 6637950185380917900, guid: 83ff1858ce3d2f4488ab0adee2c20b07, type: 3}
-  - {fileID: 7823155090755333476, guid: 88faf8ff3609b414fb814b538caac666, type: 3}
+  - {fileID: 5741716934694201052, guid: 9a1e50d7ba7b0924aaecde8d16ef6fc3, type: 3}
   lastClickedSprite: {fileID: 0}
   blockSelected: {fileID: 0}
 --- !u!4 &965142022
@@ -1333,6 +1333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   row: 1
-  col: 5
-  originalPosition: {x: -10, y: 3, z: 0}
+  col: 6
+  originalPosition: {x: -7, y: 4, z: 0}
   dataManager: {fileID: 965142021}

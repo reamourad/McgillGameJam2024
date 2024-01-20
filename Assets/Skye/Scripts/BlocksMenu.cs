@@ -52,20 +52,20 @@ public class BlocksMenu : MonoBehaviour
                 //counter to loop through blocks array
                 indexBlock++;
 
-                index_j += 1;
+                index_j += 1.5f;
 
                 instances[i, j] = instance;
             }
             index_j = 0;
-            index_i -= 1;
+            index_i -= 1.5f;
         }
     }
 
     void onBlockClick()
     {
         GameObject currentInstance = EventSystem.current.currentSelectedGameObject;
-        dataManager.lastClickedSprite = currentInstance.GetComponent<Image>().sprite;
         dataManager.blockSelected = currentInstance.GetComponent<Blocks>().blockReferencing;
+        dataManager.lastClickedSprites = currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().arrayOfSprites; 
 
     }
 }
