@@ -62,12 +62,12 @@ public class GridMenu : MonoBehaviour
         {
             for (int j = 0; j < col; j++)
             {
-                if (instances[i, j].GetComponent<Blocks>().blockReferencing == null)
-                    continue;
-
-                GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, new Vector3(originalPosition.x + index_j, originalPosition.y + index_i), Quaternion.identity);
-                obj.transform.parent = objectParent.transform;
-                index_j -= 1.5f;
+                if (instances[i, j].GetComponent<Blocks>().blockReferencing != null)
+                {
+                    GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, new Vector3(originalPosition.x + index_j, originalPosition.y + index_i), Quaternion.identity);
+                    obj.transform.parent = objectParent.transform;
+                }
+                index_j += 1.5f;
             }
             index_j = 0;
             index_i -= 1.5f;
@@ -88,21 +88,30 @@ public class GridMenu : MonoBehaviour
 
         int row = currentInstance.GetComponent<Blocks>().row;
         int column = currentInstance.GetComponent<Blocks>().col;
-
         //rotate blocks
-        if (currentInstance.GetComponent<Image>().sprite == dataManager.lastClickedSprite)
+        if (currentInstance.GetComponent<Blocks>().blockReferencing == dataManager.blockSelected)
         {
             currentInstance.transform.eulerAngles = new Vector3(0, 0, currentInstance.transform.eulerAngles.z - 90);
         }
         else
         {
             //get the row/column of the current grid object 
-            if (row - height + 1 >= 0 && col - width + 1 >= 0)
+            if (row - height + 1 >= 0 && column - width + 1 >= 0)
             {
-                    //set blocks
-                    currentInstance.GetComponent<Image>().sprite = dataManager.lastClickedSprite;
-                    currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
-                
+                //set blocks based on their height 
+                for (int i = 0; i < height; i++)
+                {
+                    GameObject instance = dataManager.gridMenu.instances[row - i, column];
+                    instance.GetComponent<Image>().sprite = dataManager.lastClickedSprites[i];
+                    instance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
+                }
+                for (int i = 0; i < width; i++)
+                {
+                    GameObject instance = dataManager.gridMenu.instances[row, column - i];
+                    instance.GetComponent<Image>().sprite = dataManager.lastClickedSprites[i];
+                    instance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
+                }
+
             }
         }
         

@@ -64,8 +64,8 @@ public class BlocksMenu : MonoBehaviour
     void onBlockClick()
     {
         GameObject currentInstance = EventSystem.current.currentSelectedGameObject;
-        dataManager.lastClickedSprite = currentInstance.GetComponent<Image>().sprite;
         dataManager.blockSelected = currentInstance.GetComponent<Blocks>().blockReferencing;
+        dataManager.lastClickedSprites = currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().arrayOfSprites; 
 
     }
 }

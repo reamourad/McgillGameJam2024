@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5045ab7cc7be74b46b3918cc809024f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 2
-  width: 1
+  height: 1
+  width: 2
   arrayOfSprites:
-  - {fileID: 21300000, guid: cce2ba397dd5eac4c801a193d4a65d45, type: 3}
-  - {fileID: 21300000, guid: cce2ba397dd5eac4c801a193d4a65d45, type: 3}
+  - {fileID: -93976790, guid: 6f2bf547507f011478749ece881ae75d, type: 3}
+  - {fileID: 1195304721, guid: 6f2bf547507f011478749ece881ae75d, type: 3}
