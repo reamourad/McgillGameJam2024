@@ -88,24 +88,23 @@ public class GridMenu : MonoBehaviour
 
         int row = currentInstance.GetComponent<Blocks>().row;
         int column = currentInstance.GetComponent<Blocks>().col;
-        //get the row/column of the current grid object 
-        //Debug.Log(currentInstance.GetComponent<Blocks>().row);
-        Debug.Log(row - height + 1);
-        if(row - height + 1 < 0)
+
+        //rotate blocks
+        if (currentInstance.GetComponent<Image>().sprite == dataManager.lastClickedSprite)
         {
-            Debug.Log("rip"); 
+            currentInstance.transform.eulerAngles = new Vector3(0, 0, currentInstance.transform.eulerAngles.z - 90);
         }
-        ////rotate blocks
-        //if (currentInstance.GetComponent<Image>().sprite == dataManager.lastClickedSprite)
-        //{
-        //    currentInstance.transform.eulerAngles = new Vector3(0, 0, currentInstance.transform.eulerAngles.z - 90);
-        //} else
-        //{
-        //    //set blocks
-        //    currentInstance.GetComponent<Image>().sprite = dataManager.lastClickedSprite;
-        //    currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
-        //}
-
-
+        else
+        {
+            //get the row/column of the current grid object 
+            if (row - height + 1 >= 0 && col - width + 1 >= 0)
+            {
+                    //set blocks
+                    currentInstance.GetComponent<Image>().sprite = dataManager.lastClickedSprite;
+                    currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
+                
+            }
+        }
+        
     }
 }
