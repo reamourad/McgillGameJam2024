@@ -87,6 +87,7 @@ public class GridMenu : MonoBehaviour
         int width = dataManager.blockSelected.GetComponent<Dimensions>().width;
 
         int row = currentInstance.GetComponent<Blocks>().row;
+        int column = currentInstance.GetComponent<Blocks>().col;
         //get the row/column of the current grid object 
         //Debug.Log(currentInstance.GetComponent<Blocks>().row);
         Debug.Log(row - height + 1);
