@@ -165,5 +165,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitForce: 0
   canExplode: 1
-  explosionForce: 500
+  explosionForce: 750
   explosionRadius: 4

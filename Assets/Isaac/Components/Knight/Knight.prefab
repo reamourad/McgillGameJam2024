@@ -166,8 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5061570478380736973, guid: e64828d97464dcc44979d77e5a159e94, type: 3}
   spawnReference: {fileID: 8837659806405032929}
-  exitForce: 500
-  aimAngle: 10
+  exitForce: 200
+  aimAngle: 45
   fireRate: 5
 --- !u!1 &6901493788565472967
 GameObject:
@@ -193,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6901493788565472967}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -26,11 +26,19 @@ public class ProjectileMovement : MonoBehaviour
 
             foreach (Collider2D c in col)
             {
-                Vector2 dir = -(c.gameObject.transform.position - transform.position);
+                if (c == transform.gameObject.GetComponent<Collider2D>())
+                    continue;
+
+                Component [] component = c.gameObject.GetComponents(typeof(FixedJoint2D));
+                foreach (Component comp in component)
+                {
+                    Destroy(comp);
+                }
+
+                Vector2 dir = (c.gameObject.transform.position - transform.position).normalized;
                 c.transform.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * explosionForce);
             }
         }
-
     }
 
     public void enableStructureBreak(GameObject obj)
@@ -40,9 +48,11 @@ public class ProjectileMovement : MonoBehaviour
             if (obj.transform.parent.name == "Parent")
             {
                 StickComponents sc = obj.transform.parent.GetComponent<StickComponents>();
+
                 sc.setComponentBreakForce(sc.jointBreakForce, sc.jointTorqueForce);
             }
         }
+
     }
 
 
