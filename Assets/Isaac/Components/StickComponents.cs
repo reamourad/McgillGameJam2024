@@ -5,7 +5,7 @@ using UnityEngine;
 public class StickComponents : MonoBehaviour
 {
     // Start is called before the first frame update
-    public List<GameObject> buildingBlocks;
+    public List<GameObject> buildingBlocks = new List<GameObject>();
     public float jointBreakForce = 100;
     public float jointTorqueForce = 100;
     public float gridDistance = 1.5f;
