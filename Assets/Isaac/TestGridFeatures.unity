@@ -330,7 +330,7 @@ MonoBehaviour:
   dataManager: {fileID: 965142021}
   prefab: {fileID: 1153228009388491523, guid: 92bb063da3257e94fb312e040e7fa261, type: 3}
   canvas: {fileID: 1592267208}
-  gridSpacing: 1.5
+  gridSpacing: 1.02
 --- !u!1 &501643595
 GameObject:
   m_ObjectHideFlags: 0
