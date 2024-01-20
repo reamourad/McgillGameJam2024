@@ -85,11 +85,12 @@ public class GridMenu : MonoBehaviour
         //check height and width if it fits 
         int height = dataManager.blockSelected.GetComponent<Dimensions>().height;
         int width = dataManager.blockSelected.GetComponent<Dimensions>().width;
-        
 
+        int row = currentInstance.GetComponent<Blocks>().row;
         //get the row/column of the current grid object 
-        Debug.Log(currentInstance.GetComponent<Blocks>().row);
-        if(row - height - 1 < 0)
+        //Debug.Log(currentInstance.GetComponent<Blocks>().row);
+        Debug.Log(row - height + 1);
+        if(row - height + 1 < 0)
         {
             Debug.Log("rip"); 
         }
