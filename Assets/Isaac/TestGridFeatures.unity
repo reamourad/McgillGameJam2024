@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   row: 5
-  col: 5
+  col: 10
   originalPosition: {x: -2.5, y: 2.5, z: 0}
   dataManager: {fileID: 965142021}
   prefab: {fileID: 1153228009388491523, guid: 92bb063da3257e94fb312e040e7fa261, type: 3}
@@ -806,11 +806,14 @@ MonoBehaviour:
   - {fileID: 1278977942150764502, guid: 5c87cfe076c0c6c4fb30d19c3f182a72, type: 3}
   - {fileID: 3934384529265062771, guid: e273a0908e4fe6d4a9c167be46436555, type: 3}
   - {fileID: 5741716934694201052, guid: 9a1e50d7ba7b0924aaecde8d16ef6fc3, type: 3}
-  - {fileID: 7823155090755333476, guid: 88faf8ff3609b414fb814b538caac666, type: 3}
+  - {fileID: 6368810998976714994, guid: 558549cc17e46b243a7a862c337b144a, type: 3}
+  - {fileID: 8660088128738647630, guid: 0ca8159779a460d4fb7125c06f1c175b, type: 3}
   blockHealth:
   - 3
   - 2
   - 1
+  - 2
+  - 5
   - 2
   - 5
   lastClickedSprites: []
@@ -1341,6 +1344,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   row: 1
-  col: 6
+  col: 7
   originalPosition: {x: -7, y: 4, z: 0}
   dataManager: {fileID: 965142021}

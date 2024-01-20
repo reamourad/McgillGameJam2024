@@ -7,8 +7,6 @@ public class HealthComponent : MonoBehaviour
     public float currHealth;
     public float maxHealth;
 
-    public Color[] damageColors;
-
     public void Start()
     {
         currHealth = maxHealth;
@@ -18,13 +16,13 @@ public class HealthComponent : MonoBehaviour
     {
         currHealth -= damage;
 
-        if (currHealth < 0)
+        if (currHealth <= 0)
         {
             Destroy(gameObject);
         } else
         {
-            Color color = new Color(currHealth / maxHealth * 255, 0, 0, 255);
-            GetComponent<SpriteRenderer>().color = color;
+            GetComponent<SpriteRenderer>().color = new Color32(255, (byte) ((currHealth / maxHealth) * 255), (byte) ((currHealth / maxHealth) * 255), 255);
+            //Debug.Log( (currHealth/maxHealth) * 255);
         }
 
     }

@@ -20,7 +20,7 @@ public class StickComponents : MonoBehaviour
         //get all the children contained inside the parent
         foreach (Transform curr in transform)
         {
-            Debug.Log(curr.gameObject.name);
+            //Debug.Log(curr.gameObject.name);
             buildingBlocks.Add(curr.gameObject);
             foreach (Transform otherChild in transform)
             {
