@@ -33,13 +33,16 @@ public class StickComponents : MonoBehaviour
 
                     //adding the fixed joint
                     FixedJoint2D f = curr.gameObject.AddComponent<FixedJoint2D>();
-                    f.breakForce = jointBreakForce;
-                    f.breakTorque = jointTorqueForce;
                     f.connectedBody = otherChild.gameObject.GetComponent<Rigidbody2D>();
 
-                    //ISSUE: Oscillation needs to be reduced further
+                    //fixed joint properties
                     f.dampingRatio = 1;
                     f.frequency = 0;
+
+                    
+                    f.breakForce = jointBreakForce;
+                    f.breakTorque = jointTorqueForce;
+                    
                 }
                 
             }
@@ -52,6 +55,20 @@ public class StickComponents : MonoBehaviour
         foreach (Transform curr in transform)
         {
             curr.GetComponent<Rigidbody2D>().angularVelocity *= 0.5f;
+        }
+    }
+
+    //we need to set all the components to a low break force when colliding with something
+    public void setComponentBreakForce (float breakForce, float torqueForce)
+    {
+        foreach (Transform child in transform)
+        {
+           FixedJoint2D f = child.GetComponent<FixedJoint2D>();
+           if (f != null)
+            {
+                f.breakForce = breakForce;
+                f.breakTorque = torqueForce;
+            }
         }
     }
 
