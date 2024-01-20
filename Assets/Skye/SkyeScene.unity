@@ -762,6 +762,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   dataManager: {fileID: 2087529545}
   prefab: {fileID: 1153228009388491523, guid: 92bb063da3257e94fb312e040e7fa261, type: 3}
+  gridSpacing: 2
 --- !u!1 &853822483
 GameObject:
   m_ObjectHideFlags: 0

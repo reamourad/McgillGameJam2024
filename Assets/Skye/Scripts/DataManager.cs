@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class DataManager : MonoBehaviour
 {
+    public GameObject blockSelectingButton;
     public GameObject[] blocks;
-    public Sprite lastClickedSprite; 
+
+    public Sprite lastClickedSprite;
+    public GameObject blockSelected;
     // Start is called before the first frame update
     void Start()
     {

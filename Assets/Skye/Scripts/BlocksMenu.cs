@@ -24,7 +24,6 @@ public class BlocksMenu : MonoBehaviour
         
     }
 
-    
     void createBlocksMenu()
     {
         float index_i = 0;
@@ -35,15 +34,27 @@ public class BlocksMenu : MonoBehaviour
         {
             for(int j = 0; j < col; j++)
             {
-                GameObject instance = Instantiate(dataManager.blocks[indexBlock]);
-                indexBlock++;
+                GameObject instance = Instantiate(dataManager.blockSelectingButton);
+                instance.GetComponent<Image>().sprite= dataManager.blocks[indexBlock].GetComponent<SpriteRenderer>().sprite;
+
+                //increment block indeces
                 instance.GetComponent<Blocks>().row = i;
                 instance.GetComponent<Blocks>().col = j;
+                instance.GetComponent<Blocks>().blockReferencing = dataManager.blocks[indexBlock];
+
+                //add position offset
                 instance.transform.SetParent(gameObject.transform, false);
                 instance.transform.position = new Vector3(originalPosition.x + index_j, originalPosition.y + index_i);
+
+                //button component
                 instance.GetComponent<Button>().onClick.AddListener(onBlockClick);
 
+                //counter to loop through blocks array
+                indexBlock++;
+
                 index_j += 1;
+
+                instances[i, j] = instance;
             }
             index_j = 0;
             index_i -= 1;
@@ -54,5 +65,7 @@ public class BlocksMenu : MonoBehaviour
     {
         GameObject currentInstance = EventSystem.current.currentSelectedGameObject;
         dataManager.lastClickedSprite = currentInstance.GetComponent<Image>().sprite;
+        dataManager.blockSelected = currentInstance.GetComponent<Blocks>().blockReferencing;
+
     }
 }

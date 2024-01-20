@@ -6,21 +6,27 @@ public class StickComponents : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<GameObject> buildingBlocks;
-    public float jointBreakForce;
-    public float jointTorqueForce;
-    public float gridDistance;
+    public float jointBreakForce = 100;
+    public float jointTorqueForce = 100;
+    public float gridDistance = 1.5f;
 
-    void Start()
+    public void Start()
+    {
+        stickChildren();
+    }
+
+    public void stickChildren()
     {
         //get all the children contained inside the parent
         foreach (Transform curr in transform)
         {
+            Debug.Log(curr.gameObject.name);
             buildingBlocks.Add(curr.gameObject);
             foreach (Transform otherChild in transform)
             {
                 //ISSUE: double fixed joint with each other
                 if (Vector2.Distance(curr.position, otherChild.position) <= gridDistance + 0.05f
-                    && otherChild != curr)
+                    && otherChild.position != curr.position)
                 {
                     //prevent overlap between fixed joints
                     if (otherChild.GetComponent<FixedJoint2D>() != null)
@@ -43,9 +49,9 @@ public class StickComponents : MonoBehaviour
                     f.breakForce = jointBreakForce;
                     f.breakTorque = jointTorqueForce;
                     */
-                    
+
                 }
-                
+
             }
         }
     }

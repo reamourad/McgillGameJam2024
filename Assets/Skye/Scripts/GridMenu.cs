@@ -13,16 +13,13 @@ public class GridMenu : MonoBehaviour
     public Vector3 originalPosition;
     public GameObject[,] instances;
     public DataManager dataManager;
-    public GameObject prefab; 
+    public GameObject prefab;
+
+    public float gridSpacing;
     // Start is called before the first frame update
     void Start()
     {
         createGridMenu();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     void createGridMenu()
@@ -39,21 +36,44 @@ public class GridMenu : MonoBehaviour
                 indexBlock++;
                 instance.GetComponent<Blocks>().row = i;
                 instance.GetComponent<Blocks>().col = j;
+
                 instance.transform.SetParent(gameObject.transform, false);
                 instance.transform.position = new Vector3(originalPosition.x + index_j, originalPosition.y + index_i);
                 instance.GetComponent<Button>().onClick.AddListener(onGridClick);
 
-                index_j += 0.3f;
+                index_j += gridSpacing;
+                instances[i, j] = instance;
             }
             index_j = 0;
-            index_i -= 0.3f;
+            index_i -= gridSpacing;
         }
     }
 
-    void onGridClick()
+    public void spawnObjects()
+    {
+        GameObject objectParent = new GameObject();
+        objectParent.gameObject.name = "Parent";
 
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < col; j++)
+            {
+                if (instances[i, j].GetComponent<Blocks>().blockReferencing == null)
+                    continue;
+
+                GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, instances[i, j].transform.position, Quaternion.identity);
+                obj.transform.parent = objectParent.transform;
+            }
+        }
+
+        objectParent.AddComponent<StickComponents>();
+        objectParent.GetComponent<StickComponents>().stickChildren();
+    }
+
+    void onGridClick()
     {
         GameObject currentInstance = EventSystem.current.currentSelectedGameObject;
         currentInstance.GetComponent<Image>().sprite = dataManager.lastClickedSprite;
+        currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
     }
 }
