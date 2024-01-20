@@ -39,9 +39,10 @@ public class StickComponents : MonoBehaviour
                     f.dampingRatio = 1;
                     f.frequency = 0;
 
-                    
+                    /*
                     f.breakForce = jointBreakForce;
                     f.breakTorque = jointTorqueForce;
+                    */
                     
                 }
                 
@@ -51,14 +52,14 @@ public class StickComponents : MonoBehaviour
 
     private void Update()
     {
-        //very inefficient but, 
+        //very inefficient but, does remove the oscillation issue :3
         foreach (Transform curr in transform)
         {
             curr.GetComponent<Rigidbody2D>().angularVelocity *= 0.5f;
         }
     }
 
-    //we need to set all the components to a low break force when colliding with something
+    //set all components to a lower break force when hit by a projectile or explosion for better physics!
     public void setComponentBreakForce (float breakForce, float torqueForce)
     {
         foreach (Transform child in transform)
@@ -70,6 +71,18 @@ public class StickComponents : MonoBehaviour
                 f.breakTorque = torqueForce;
             }
         }
+
+        //reset all components to max break force
+        if (breakForce != Mathf.Infinity || torqueForce != Mathf.Infinity)
+        {
+            Invoke("resetComponentBreakForce", 0.5f);
+        }
+    }
+
+    public void resetComponentBreakForce ()
+    {
+        setComponentBreakForce(Mathf.Infinity, Mathf.Infinity);
+        Debug.Log("Resent break force components");
     }
 
 }
