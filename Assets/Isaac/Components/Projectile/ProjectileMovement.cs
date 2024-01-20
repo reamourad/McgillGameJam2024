@@ -11,18 +11,22 @@ public class ProjectileMovement : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(transform.up * exitForce);
     }
 
-    //collision box must be alrger than the actual projectile
+    //collision box must be larger than the actual projectile
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.transform.parent != null)
+        enableStructureBreak(collision.gameObject);
+    }
+
+    public void enableStructureBreak(GameObject obj)
+    {
+        if (obj.transform.parent != null)
         {
-            if (collision.gameObject.transform.parent.name == "Parent")
+            if (obj.transform.parent.name == "Parent")
             {
-                StickComponents sc = collision.gameObject.transform.parent.GetComponent<StickComponents>();
+                StickComponents sc = obj.transform.parent.GetComponent<StickComponents>();
                 sc.setComponentBreakForce(sc.jointBreakForce, sc.jointTorqueForce);
             }
         }
-
     }
 
 
