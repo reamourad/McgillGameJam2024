@@ -63,7 +63,7 @@ public class GridMenu : MonoBehaviour
                 if (instances[i, j].GetComponent<Blocks>().blockReferencing == null)
                     continue;
 
-                GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, instances[i, j].transform.position, Quaternion.identity);
+                GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, instances[i, j].transform.position, instances[i,j].transform.rotation);
                 obj.transform.parent = objectParent.transform;
             }
         }
@@ -75,7 +75,19 @@ public class GridMenu : MonoBehaviour
     void onGridClick()
     {
         GameObject currentInstance = EventSystem.current.currentSelectedGameObject;
-        currentInstance.GetComponent<Image>().sprite = dataManager.lastClickedSprite;
-        currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
+
+        //rotate blocks
+        if (currentInstance.GetComponent<Image>().sprite == dataManager.lastClickedSprite)
+        {
+            currentInstance.transform.eulerAngles = new Vector3(0, 0, currentInstance.transform.eulerAngles.z - 90);
+        } else
+        {
+            //set blocks
+            currentInstance.GetComponent<Image>().sprite = dataManager.lastClickedSprite;
+            currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
+
+        }
+
+
     }
 }
