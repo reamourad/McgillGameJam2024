@@ -804,6 +804,7 @@ MonoBehaviour:
   - {fileID: 7823155090755333476, guid: 9ddba7f38b580cb42af5d54bcd4e3ac8, type: 3}
   - {fileID: 3934384529265062771, guid: e273a0908e4fe6d4a9c167be46436555, type: 3}
   - {fileID: 1278977942150764502, guid: 5c87cfe076c0c6c4fb30d19c3f182a72, type: 3}
+  - {fileID: 6637950185380917900, guid: 83ff1858ce3d2f4488ab0adee2c20b07, type: 3}
   lastClickedSprite: {fileID: 0}
   blockSelected: {fileID: 0}
 --- !u!4 &965142022
@@ -1279,8 +1280,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648885089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1689, y: -4.29, z: 0}
-  m_LocalScale: {x: 24.8378, y: 1.5645, z: 1}
+  m_LocalPosition: {x: 1.6809, y: -5.09, z: 0}
+  m_LocalScale: {x: 66.16957, y: 1.4804864, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1331,7 +1332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   row: 1
-  col: 3
-  originalPosition: {x: -7, y: 3, z: 0}
+  col: 4
+  originalPosition: {x: -10, y: 3, z: 0}
   dataManager: {fileID: 965142021}
   gridMenu: {fileID: 0}
