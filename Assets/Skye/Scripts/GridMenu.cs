@@ -79,19 +79,30 @@ public class GridMenu : MonoBehaviour
 
     void onGridClick()
     {
+        //todo: check if the instance is a block 
         GameObject currentInstance = EventSystem.current.currentSelectedGameObject;
 
-        //rotate blocks
-        if (currentInstance.GetComponent<Image>().sprite == dataManager.lastClickedSprite)
-        {
-            currentInstance.transform.eulerAngles = new Vector3(0, 0, currentInstance.transform.eulerAngles.z - 90);
-        } else
-        {
-            //set blocks
-            currentInstance.GetComponent<Image>().sprite = dataManager.lastClickedSprite;
-            currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
+        //check height and width if it fits 
+        int height = dataManager.blockSelected.GetComponent<Dimensions>().height;
+        int width = dataManager.blockSelected.GetComponent<Dimensions>().width;
+        
 
+        //get the row/column of the current grid object 
+        Debug.Log(currentInstance.GetComponent<Blocks>().row);
+        if(row - height - 1 < 0)
+        {
+            Debug.Log("rip"); 
         }
+        ////rotate blocks
+        //if (currentInstance.GetComponent<Image>().sprite == dataManager.lastClickedSprite)
+        //{
+        //    currentInstance.transform.eulerAngles = new Vector3(0, 0, currentInstance.transform.eulerAngles.z - 90);
+        //} else
+        //{
+        //    //set blocks
+        //    currentInstance.GetComponent<Image>().sprite = dataManager.lastClickedSprite;
+        //    currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
+        //}
 
 
     }

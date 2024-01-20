@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1278977942150764498}
   - component: {fileID: 1278977942150764497}
   - component: {fileID: 4605841965384140753}
+  - component: {fileID: 4932480652202695966}
   m_Layer: 0
   m_Name: ProjectileLauncher
   m_TagString: Untagged
@@ -152,6 +153,22 @@ MonoBehaviour:
   exitForce: 1000
   aimAngle: 0
   fireRate: 1
+--- !u!114 &4932480652202695966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278977942150764502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5045ab7cc7be74b46b3918cc809024f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  height: 1
+  width: 1
+  arrayOfSprites:
+  - {fileID: 21300000, guid: 066a1de642618764083f63be9f336a5d, type: 3}
 --- !u!1 &9020351278547964646
 GameObject:
   m_ObjectHideFlags: 0

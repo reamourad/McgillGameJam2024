@@ -12,7 +12,6 @@ public class BlocksMenu : MonoBehaviour
     public Vector3 originalPosition; 
     public GameObject[,] instances;
     public DataManager dataManager;
-    public Canvas gridMenu; 
     // Start is called before the first frame update
     void Start()
     {
