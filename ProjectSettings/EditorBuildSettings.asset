@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Phoebe/MainMenu.unity
+    guid: 2b1e879fec2064cc5acb794341d7f6fe
+  - enabled: 1
+    path: Assets/Phoebe/GamePlaceholder.unity
+    guid: ddd3c941e970d4513bbddeb2e904208c
+  - enabled: 1
     path: Assets/Skye/SkyeScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}

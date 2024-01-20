@@ -1335,5 +1335,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   row: 1
   col: 5
-  originalPosition: {x: -10, y: 3, z: 0}
+  originalPosition: {x: -7, y: 3, z: 0}
   dataManager: {fileID: 965142021}
