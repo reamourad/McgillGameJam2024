@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     
     Vector3 targetPosition;
     float focusedCameraSize = 5f;
-    float wideCameraSize = 13f;
+    float wideCameraSize = 5f;
     float targetSize;
 
     public Canvas UI;

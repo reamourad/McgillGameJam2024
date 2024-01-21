@@ -12,7 +12,7 @@ public class MoneyManager : MonoBehaviour
     void Start()
     {
         dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
-        tmp.text = dataManager.initialMoney.ToString();   
+        updateMoney(dataManager.initialMoney); 
     }
 
     public void updateMoney(int price)
