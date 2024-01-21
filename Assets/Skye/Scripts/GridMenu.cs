@@ -14,6 +14,7 @@ public class GridMenu : MonoBehaviour
     public GameObject[,] instances;
     public DataManager dataManager;
     public GameObject prefab;
+    public MoneyManager moneyManager;
 
     public Canvas canvas; 
     public float gridSpacing;
@@ -107,7 +108,7 @@ public class GridMenu : MonoBehaviour
         else
         {
             currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
-
+            moneyManager.updateMoney(currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost);
             //get the row/column of the current grid object 
             if (row - height + 1 >= 0 && column - width + 1 >= 0)
             {

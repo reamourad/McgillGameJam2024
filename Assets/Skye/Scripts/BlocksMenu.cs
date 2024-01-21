@@ -39,11 +39,13 @@ public class BlocksMenu : MonoBehaviour
             {
                 GameObject instance = Instantiate(dataManager.blockSelectingButton);
                 instance.GetComponent<Image>().sprite= dataManager.blocks[indexBlock].GetComponent<SpriteRenderer>().sprite;
-
+                Debug.Log(instance.GetComponent<Blocks>().costText.text);
+                instance.GetComponent<Blocks>().costText.text = dataManager.blocks[indexBlock].GetComponent<Dimensions>().cost.ToString(); 
                 //increment block indeces
                 instance.GetComponent<Blocks>().row = i;
                 instance.GetComponent<Blocks>().col = j;
                 instance.GetComponent<Blocks>().blockReferencing = dataManager.blocks[indexBlock];
+
 
                 //add position offset
                 instance.transform.SetParent(gameObject.transform, false);
