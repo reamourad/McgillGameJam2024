@@ -12,8 +12,7 @@ public class MoneyManager : MonoBehaviour
     void Start()
     {
         dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
-        tmp.text = dataManager.initialMoney.ToString();
-        Debug.Log(dataManager.initialMoney.ToString());
+        tmp.text = dataManager.initialMoney.ToString();   
     }
 
     public void updateMoney(int price)
