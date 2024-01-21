@@ -129,12 +129,7 @@ public class GridMenu : MonoBehaviour
         else
         {
 
-            if (currentInstance.GetComponent<Blocks>().blockReferencing != null)
-            {
-                moneyManager.updateMoney(-1 * currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost);
-            }
-            currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
-            moneyManager.updateMoney(currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost);
+          
             //get the row/column of the current grid object 
             if (row - height + 1 >= 0 && column - width + 1 >= 0)
             {

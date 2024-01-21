@@ -7,7 +7,12 @@ public class DataManager : MonoBehaviour
 {
     public GameObject blockSelectingButton;
     public GameObject[] blocks;
-    public GameObject[] blocks_white;
+
+    public GameObject [] whiteAttacking;
+    public GameObject[] blackAttacking;
+    public GameObject[] whiteDefending;
+    public GameObject[] blackDefending;
+
     public float [] blockHealth;
     public float[] blockPoint;
 
