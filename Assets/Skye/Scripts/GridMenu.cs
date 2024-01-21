@@ -25,6 +25,8 @@ public class GridMenu : MonoBehaviour
         originalPosition += Camera.main.transform.position;
 
         createGridMenu();
+
+
     }
 
     void createGridMenu()
@@ -76,6 +78,7 @@ public class GridMenu : MonoBehaviour
                     obj.AddComponent<HealthComponent>();
                     obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
                     obj.GetComponent<HealthComponent>().value = dataManager.blockPoint[index];
+
                 }
                 index_j += 1.5f;
             }
@@ -154,32 +157,17 @@ public class GridMenu : MonoBehaviour
                     return;
                 }
 
-
-                //{
-                    //Debug.Log(currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().height);
-                    //for (int i = 0; i < currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().height; i++)
-                    //{
-                    //    GameObject instance = dataManager.gridMenu.instances[row - i, column];
-                    //    instance.GetComponent<Image>().sprite = prefab.GetComponent<Sprite>();
-                    //    Debug.Log("hello"); 
-                    //}
-                    //for (int i = 0; i < currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().width; i++)
-                    //{
-                    //    GameObject instance = dataManager.gridMenu.instances[row, column + i];
-                    //    instance.GetComponent<Image>().sprite = prefab.GetComponent<Sprite>();
-                    //}
-                //
-
-
-               
-
                 //only for 2 height
                 if (currentInstance.GetComponent<Blocks>().blockReferencing != null)
                 {
+                    Debug.Log("Not null");
                     if (currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().arrayOfSprites.Length + 1 > 1)
                     {
+                        Debug.Log("On something");
+                        Debug.Log(currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().arrayOfSprites[1]); 
                         if (currentInstance.GetComponent<Image>().sprite == currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().arrayOfSprites[0])
                         {
+                            Debug.Log("Bottom"); 
                             int currentheight = currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().height; 
                             for (int i = 0; i < currentheight; i++)
                             {
@@ -193,6 +181,7 @@ public class GridMenu : MonoBehaviour
                             int currentheight = currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().height;
                             for (int i = 0; i < currentheight; i++)
                             {
+                                Debug.Log("Top");
                                 GameObject instance = dataManager.gridMenu.instances[row + i, column];
                                 instance.GetComponent<Image>().sprite = prefab.GetComponent<Image>().sprite;
                                 instance.GetComponent<Blocks>().blockReferencing = prefab;
@@ -211,13 +200,15 @@ public class GridMenu : MonoBehaviour
                     GameObject instance = dataManager.gridMenu.instances[row - i, column];
                     instance.GetComponent<Image>().sprite = dataManager.lastClickedSprites[i];
                     instance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
+
+
+
                 }
                 for (int i = 0; i < width; i++)
                 {
                     GameObject instance = dataManager.gridMenu.instances[row, column + i];
                     instance.GetComponent<Image>().sprite = dataManager.lastClickedSprites[i];
                     instance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
-
                 }
 
             }

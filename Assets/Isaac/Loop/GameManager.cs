@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
         if (showUI && Vector2.Distance(mainCamera.transform.position, targetPosition) < 0.5f)
         {
             currCanva = Instantiate(UI, mainCamera.transform);
+
             currCanva.GetComponent<Canvas>().worldCamera = mainCamera;
             showUI = false;
 
@@ -122,6 +123,8 @@ public class GameManager : MonoBehaviour
         {
             currCanva.enabled = false;
         }
+
+        
     }
 
     public void setAttacking()
@@ -140,7 +143,7 @@ public class GameManager : MonoBehaviour
         timerText.gameObject.SetActive(true);
         timer = turnTimer;
 
-        targetPosition = (defendersPosition.position + attackersPosition.position) / 2 + new Vector3(0, wideCameraSize / 2, 0);
+        targetPosition = (defendersPosition.position + attackersPosition.position) / 2;
         targetSize = wideCameraSize;
 
         roundText.transform.parent.gameObject.SetActive(false);
