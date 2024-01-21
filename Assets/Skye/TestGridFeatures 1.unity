@@ -817,7 +817,7 @@ MonoBehaviour:
   - 2
   - 5
   blockPoint: []
-  initialMoney: 200
+  initialMoney: 50
   lastClickedSprites: []
   blockSelected: {fileID: 0}
   gridMenu: {fileID: 450980299}
@@ -1334,7 +1334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataManager: {fileID: 965142021}
-  currentMoney: 200
+  currentMoney: 50
   tmp: {fileID: 1733540874}
 --- !u!114 &1733540874
 MonoBehaviour:
