@@ -20,7 +20,17 @@ public class Queen : MonoBehaviour
         laserBeamVFX = GetComponent<LineRenderer>();
         laserBeamVFX.positionCount = 2;
 
-        shootDirection = transform.right;
+        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        Vector3 center = (gm.attackersPosition.position + gm.defendersPosition.position) / 2;
+
+        if (transform.position.x > center.x)
+        {
+            shootDirection = -transform.right;
+            
+        } else
+        {
+            shootDirection = transform.right;
+        }
     }
 
     // Update is called once per frame

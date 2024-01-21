@@ -66,7 +66,7 @@ public class GridMenu : MonoBehaviour
         {
             for (int j = 0; j < col; j++)
             {
-                if (instances[i, j].GetComponent<Blocks>().blockReferencing != null)
+                if (instances[i, j].GetComponent<Blocks>().blockReferencing != null && instances[i, j].GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().canSpawn)
                 {
                     GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, new Vector3(originalPosition.x + index_j, originalPosition.y + index_i), instances[i,j].transform.rotation);
                     obj.transform.parent = objectParent.transform;
@@ -143,10 +143,6 @@ public class GridMenu : MonoBehaviour
                 {
                     oldCost = currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost;
                 }
-                Debug.Log("Current: " + moneyManager.currentMoney);
-                Debug.Log("Old: " + oldCost);
-                Debug.Log("Present: " + dataManager.blockSelected.GetComponent<Dimensions>().cost);
-                //Debug.Log("Equation: " + (moneyManager.currentMoney - oldCost + dataManager.blockSelected.GetComponent<Dimensions>().cost));
                 int price = moneyManager.currentMoney + oldCost - dataManager.blockSelected.GetComponent<Dimensions>().cost;
                 Debug.Log(price);
                 if (price > 0)
@@ -157,18 +153,71 @@ public class GridMenu : MonoBehaviour
                 {
                     return;
                 }
-                
+
+
+                //{
+                    //Debug.Log(currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().height);
+                    //for (int i = 0; i < currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().height; i++)
+                    //{
+                    //    GameObject instance = dataManager.gridMenu.instances[row - i, column];
+                    //    instance.GetComponent<Image>().sprite = prefab.GetComponent<Sprite>();
+                    //    Debug.Log("hello"); 
+                    //}
+                    //for (int i = 0; i < currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().width; i++)
+                    //{
+                    //    GameObject instance = dataManager.gridMenu.instances[row, column + i];
+                    //    instance.GetComponent<Image>().sprite = prefab.GetComponent<Sprite>();
+                    //}
+                //
+
+
+               
+
+                //only for 2 height
+                if (currentInstance.GetComponent<Blocks>().blockReferencing != null)
+                {
+                    if (currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().arrayOfSprites.Length + 1 > 1)
+                    {
+                        if (currentInstance.GetComponent<Image>().sprite == currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().arrayOfSprites[0])
+                        {
+                            int currentheight = currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().height; 
+                            for (int i = 0; i < currentheight; i++)
+                            {
+                                GameObject instance = dataManager.gridMenu.instances[row - i, column];
+                                instance.GetComponent<Image>().sprite = prefab.GetComponent<Image>().sprite;
+                                instance.GetComponent<Blocks>().blockReferencing = prefab;
+                            }
+                        }
+                        else if(currentInstance.GetComponent<Image>().sprite == currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().arrayOfSprites[1])
+                        {
+                            int currentheight = currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().height;
+                            for (int i = 0; i < currentheight; i++)
+                            {
+                                GameObject instance = dataManager.gridMenu.instances[row + i, column];
+                                instance.GetComponent<Image>().sprite = prefab.GetComponent<Image>().sprite;
+                                instance.GetComponent<Blocks>().blockReferencing = prefab;
+                            }
+                        }
+                    }
+                }
+
                 currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
+
+                currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().canSpawn = true;
+
                 //set blocks based on their height 
                 for (int i = 0; i < height; i++)
                 {
                     GameObject instance = dataManager.gridMenu.instances[row - i, column];
                     instance.GetComponent<Image>().sprite = dataManager.lastClickedSprites[i];
+                    instance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
                 }
                 for (int i = 0; i < width; i++)
                 {
                     GameObject instance = dataManager.gridMenu.instances[row, column + i];
                     instance.GetComponent<Image>().sprite = dataManager.lastClickedSprites[i];
+                    instance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
+
                 }
 
             }
