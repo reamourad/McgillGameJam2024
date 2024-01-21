@@ -163,8 +163,6 @@ public class GridMenu : MonoBehaviour
                     Debug.Log("Not null");
                     if (currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().arrayOfSprites.Length + 1 > 1)
                     {
-                        Debug.Log("On something");
-                        Debug.Log(currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().arrayOfSprites[1]); 
                         if (currentInstance.GetComponent<Image>().sprite == currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().arrayOfSprites[0])
                         {
                             Debug.Log("Bottom"); 
