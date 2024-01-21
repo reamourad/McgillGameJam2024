@@ -23,7 +23,7 @@ public class Queen : MonoBehaviour
         GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         Vector3 center = (gm.attackersPosition.position + gm.defendersPosition.position) / 2;
 
-        if (transform.position.x > center.x)
+        if (transform.parent.transform.position.x > center.x)
         {
             shootDirection = -transform.right;
             

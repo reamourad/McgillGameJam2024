@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 using static UnityEngine.Rendering.DebugUI.Table;
 
 public class GridMenu : MonoBehaviour
@@ -17,6 +18,7 @@ public class GridMenu : MonoBehaviour
 
     public Canvas canvas; 
     public float gridSpacing;
+    public GameObject warningText;
 
     public bool isDefending;
     // Start is called before the first frame update
@@ -28,7 +30,7 @@ public class GridMenu : MonoBehaviour
 
         createGridMenu();
 
-
+        warningText.SetActive(false);
     }
 
     void createGridMenu()
@@ -62,6 +64,7 @@ public class GridMenu : MonoBehaviour
     {
         bool shouldAllowSpawn = false;
 
+        Debug.Log("GRIDM: " + isDefending);
         if (isDefending)
         {
             for (int i = 0; i < row; i++)
@@ -82,17 +85,18 @@ public class GridMenu : MonoBehaviour
 
         if (isDefending && shouldAllowSpawn == false)
         {
-            Debug.Log("PLACE A KING");
+            warningText.SetActive(true);
             return;
         }
 
+        warningText.SetActive(false);
 
         float index_i = 0;
         float index_j = 0;
         canvas.enabled = false;
         GameObject objectParent = new GameObject();
         objectParent.gameObject.name = "Parent";
-
+        objectParent.transform.position = Camera.main.transform.position;
 
 
         for (int i = 0; i < row; i++)
