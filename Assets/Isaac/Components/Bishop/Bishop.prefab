@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 3828755618217963688, guid: 8c50d3386dc560a4e8c6a5a4d7ee65e2, type: 3}
   spawnReference: {fileID: 9020351278547964647}
+  sfxSource: WeapinCrossbowFireArrowRelease
   exitForce: 500
   aimAngle: 90
   fireRate: 1

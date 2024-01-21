@@ -7,6 +7,8 @@ public class ProjectileLauncher : MonoBehaviour
     public GameObject projectile;
     public Transform spawnReference;
 
+    public string sfxSource;
+
     public float exitForce;
     public float aimAngle;
     public float fireRate;
