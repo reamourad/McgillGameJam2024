@@ -85,6 +85,11 @@ public class GridMenu : MonoBehaviour
 
         objectParent.AddComponent<StickComponents>();
         objectParent.GetComponent<StickComponents>().stickChildren();
+
+        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gm.parentListing.Add(objectParent.transform);
+        gm.proceedToNextStage();
+
     }
 
     void onGridClick()
