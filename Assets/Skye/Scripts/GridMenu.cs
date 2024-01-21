@@ -149,25 +149,6 @@ public class GridMenu : MonoBehaviour
                     return;
                 }
 
-
-                //{
-                    //Debug.Log(currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().height);
-                    //for (int i = 0; i < currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().height; i++)
-                    //{
-                    //    GameObject instance = dataManager.gridMenu.instances[row - i, column];
-                    //    instance.GetComponent<Image>().sprite = prefab.GetComponent<Sprite>();
-                    //    Debug.Log("hello"); 
-                    //}
-                    //for (int i = 0; i < currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().width; i++)
-                    //{
-                    //    GameObject instance = dataManager.gridMenu.instances[row, column + i];
-                    //    instance.GetComponent<Image>().sprite = prefab.GetComponent<Sprite>();
-                    //}
-                //
-
-
-               
-
                 //only for 2 height
                 if (currentInstance.GetComponent<Blocks>().blockReferencing != null)
                 {
