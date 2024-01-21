@@ -96,7 +96,7 @@ public class GridMenu : MonoBehaviour
         canvas.enabled = false;
         GameObject objectParent = new GameObject();
         objectParent.gameObject.name = "Parent";
-
+        objectParent.transform.position = Camera.main.transform.position;
 
 
         for (int i = 0; i < row; i++)
