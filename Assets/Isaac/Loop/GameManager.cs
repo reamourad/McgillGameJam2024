@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Camera mainCamera;
-
+    public DataManager data;
 
     public Transform attackersPosition;
     public Transform defendersPosition;
@@ -59,6 +59,13 @@ public class GameManager : MonoBehaviour
 
             currCanva.GetComponent<Canvas>().worldCamera = mainCamera;
             showUI = false;
+
+            if (stage == 1 || stage == 4)
+            {
+                GridMenu grid = GameObject.Find("Grid menu").GetComponent<GridMenu>();
+                grid.isDefending = true;
+                Debug.Log("DEFENDING!!");
+            }
 
             mainCamera.orthographicSize = (int)mainCamera.orthographicSize;
         } else

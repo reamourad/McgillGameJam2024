@@ -17,6 +17,8 @@ public class GridMenu : MonoBehaviour
 
     public Canvas canvas; 
     public float gridSpacing;
+
+    public bool isDefending;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,11 +60,40 @@ public class GridMenu : MonoBehaviour
 
     public void spawnObjects()
     {
+        bool shouldAllowSpawn = false;
+
+        if (isDefending)
+        {
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    if (instances[i, j].GetComponent<Blocks>().blockReferencing != null)
+                    {
+                        if (instances[i, j].GetComponent<Blocks>().blockReferencing.gameObject.name.Contains("ing"))
+                        {
+                            shouldAllowSpawn = true;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        if (isDefending && shouldAllowSpawn == false)
+        {
+            Debug.Log("PLACE A KING");
+            return;
+        }
+
+
         float index_i = 0;
         float index_j = 0;
         canvas.enabled = false;
         GameObject objectParent = new GameObject();
         objectParent.gameObject.name = "Parent";
+
+
 
         for (int i = 0; i < row; i++)
         {
