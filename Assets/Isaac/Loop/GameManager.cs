@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
         timerText.gameObject.SetActive(true);
         timer = turnTimer;
 
-        targetPosition = (defendersPosition.position + attackersPosition.position) / 2 + new Vector3(0, wideCameraSize / 2, 0);
+        targetPosition = (defendersPosition.position + attackersPosition.position) / 2;
         targetSize = wideCameraSize;
 
         roundText.transform.parent.gameObject.SetActive(false);
