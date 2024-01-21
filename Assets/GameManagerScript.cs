@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class GameManagerScript : MonoBehaviour
 {
-    public void PlayGame()
+    public void PlayAgain()
     {
         SceneManager.LoadSceneAsync("GamePlayLoop");
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 }
