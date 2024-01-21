@@ -57,7 +57,7 @@ public class BlocksMenu : MonoBehaviour
                     {
                         Destroy(instance);
                     }
-                    if (dataManager.blocks[indexBlock].GetComponent<Dimensions>().icon.name.Contains("ocket") && isDefending)
+                    if (dataManager.blocks[indexBlock].GetComponent<Dimensions>().icon.name.Contains("ook") && isDefending)
                     {
                         Destroy(instance);
                     }
@@ -71,7 +71,7 @@ public class BlocksMenu : MonoBehaviour
                     {
                         Destroy(instance);
                     }
-                    if (dataManager.blocks[indexBlock].GetComponent<SpriteRenderer>().sprite.name.Contains("ocket") && isDefending)
+                    if (dataManager.blocks[indexBlock].GetComponent<SpriteRenderer>().sprite.name.Contains("ook") && isDefending)
                     {
                         Destroy(instance);
                     }
