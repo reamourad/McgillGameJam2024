@@ -26,7 +26,7 @@ public class determineWinner : MonoBehaviour
             scoreText.text = "Black Wins";
         }
         player1.text = "White score: " + scorePlayer1;
-        player2.txt = "Black score: " + scorePlayer2;
+        player2.text = "Black score: " + scorePlayer2;
     }
 
     // Update is called once per frame
