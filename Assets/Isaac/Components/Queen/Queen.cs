@@ -39,6 +39,9 @@ public class Queen : MonoBehaviour
             }
 
             laserBeamVFX.SetPosition(1, hit.point);
+
+            AudioManager.Instance.PlaySFX("QueenLaser");
+            
         } else
         {
             laserBeamVFX.SetPosition(1, laserStart.position + shootDirection * 9999f);
