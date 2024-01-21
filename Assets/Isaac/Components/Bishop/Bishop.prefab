@@ -170,8 +170,9 @@ MonoBehaviour:
   cost: 10
   arrayOfSprites:
   - {fileID: 21300000, guid: 637182d1d53baaf42908a0aa0d5c4032, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 9d7355e8234472546b44a0d3ac755e73, type: 3}
   description: 
+  canSpawn: 0
 --- !u!1 &9020351278547964646
 GameObject:
   m_ObjectHideFlags: 0
