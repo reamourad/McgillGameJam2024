@@ -20,6 +20,10 @@ public class GridMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
+        dataManager.gridMenu = this;
+        originalPosition += Camera.main.transform.position;
+
         createGridMenu();
     }
 

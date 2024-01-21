@@ -39,9 +39,9 @@ public class GameManager : MonoBehaviour
         //this camera lerping is horrendous
         mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPosition, Time.deltaTime);
 
-        if (showUI)
+        if (showUI && Vector2.Distance(mainCamera.transform.position, targetPosition) < 0.5f)
         {
-            currCanva = Instantiate(UI);
+            currCanva = Instantiate(UI, mainCamera.transform);
             currCanva.GetComponent<Canvas>().worldCamera = mainCamera;
             showUI = false;
         }
@@ -54,13 +54,13 @@ public class GameManager : MonoBehaviour
             if (stage == 2)
             {
                 targetPosition = attackersPosition.position;
+                showUI = true;
             } else if (stage == 3)
             {
                 targetPosition = (defendersPosition.position + attackersPosition.position) / 2;
             }
 
-            Destroy(currCanva);
-            showUI = true;
+            currCanva.enabled = false;
         }
     }
 

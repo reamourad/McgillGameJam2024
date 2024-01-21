@@ -15,6 +15,9 @@ public class BlocksMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
+        originalPosition += transform.parent.position;
+
         createBlocksMenu();
     }
 
