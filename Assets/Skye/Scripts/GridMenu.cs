@@ -15,6 +15,7 @@ public class GridMenu : MonoBehaviour
     public GameObject prefab;
     public MoneyManager moneyManager;
 
+    public bool isBlack = true;
     public Canvas canvas; 
     public float gridSpacing;
     // Start is called before the first frame update
@@ -76,6 +77,11 @@ public class GridMenu : MonoBehaviour
                     obj.AddComponent<HealthComponent>();
                     obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
                     obj.GetComponent<HealthComponent>().value = dataManager.blockPoint[index];
+
+                    if (isBlack)
+                    {
+                        obj.GetComponent<SpriteRenderer>().color = new Color32(90,90,90,255);
+                    }
                 }
                 index_j += 1.5f;
             }
@@ -153,17 +159,28 @@ public class GridMenu : MonoBehaviour
                     return;
                 }
                 
+                
                 currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
                 //set blocks based on their height 
                 for (int i = 0; i < height; i++)
                 {
                     GameObject instance = dataManager.gridMenu.instances[row - i, column];
                     instance.GetComponent<Image>().sprite = dataManager.lastClickedSprites[i];
+
+                    if (isBlack)
+                    {
+                        instance.GetComponent<Image>().color = new Color32(90, 90, 90, 255);
+                    }
                 }
                 for (int i = 0; i < width; i++)
                 {
                     GameObject instance = dataManager.gridMenu.instances[row, column + i];
                     instance.GetComponent<Image>().sprite = dataManager.lastClickedSprites[i];
+
+                    if (isBlack)
+                    {
+                        instance.GetComponent<Image>().color = new Color32(90, 90, 90, 255);
+                    }
                 }
 
             }

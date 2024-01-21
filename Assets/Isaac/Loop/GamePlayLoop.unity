@@ -1285,7 +1285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780349013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6809, y: -3.71, z: -1}
+  m_LocalPosition: {x: 1.6809, y: 3.71, z: -1}
   m_LocalScale: {x: 66.16957, y: 1.4804864, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1331,9 +1331,10 @@ MonoBehaviour:
   - {fileID: 6368810998976714994, guid: 558549cc17e46b243a7a862c337b144a, type: 3}
   - {fileID: 8660088128738647630, guid: 0ca8159779a460d4fb7125c06f1c175b, type: 3}
   - {fileID: 7823155090755333476, guid: 60ed1303b595544128b84e9682a774da, type: 3}
-  attackOnly:
-  - {fileID: 6637950185380917900, guid: 83ff1858ce3d2f4488ab0adee2c20b07, type: 3}
-  - {fileID: 3934384529265062771, guid: e273a0908e4fe6d4a9c167be46436555, type: 3}
+  whiteAttacking: []
+  blackAttacking: []
+  whiteDefending: []
+  blackDefending: []
   blockHealth:
   - 3
   - 2
