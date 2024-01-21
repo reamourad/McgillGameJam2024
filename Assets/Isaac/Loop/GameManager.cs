@@ -55,6 +55,21 @@ public class GameManager : MonoBehaviour
         if (showUI && Vector2.Distance(mainCamera.transform.position, targetPosition) < 0.5f)
         {
             currCanva = Instantiate(UI, mainCamera.transform);
+
+            foreach (Transform child in currCanva.transform)
+            {
+                if (child.name == "Grid menu")
+                {
+                    if (stage == 1 || stage == 5)
+                    {
+                        child.GetComponent<GridMenu>().isBlack = true;
+                    } else
+                    {
+                        child.GetComponent<GridMenu>().isBlack = false;
+                    }
+                }
+            }
+
             currCanva.GetComponent<Canvas>().worldCamera = mainCamera;
             showUI = false;
 
@@ -110,6 +125,8 @@ public class GameManager : MonoBehaviour
         {
             currCanva.enabled = false;
         }
+
+        
     }
 
     public void setAttacking()
