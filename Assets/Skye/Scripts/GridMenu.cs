@@ -71,7 +71,7 @@ public class GridMenu : MonoBehaviour
                     Debug.Log(index);
 
                     obj.AddComponent<HealthComponent>();
-                    obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
+                    //obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
                 }
                 index_j += 1.5f;
             }
@@ -94,6 +94,8 @@ public class GridMenu : MonoBehaviour
 
         int row = currentInstance.GetComponent<Blocks>().row;
         int column = currentInstance.GetComponent<Blocks>().col;
+
+
         //rotate blocks
         if (currentInstance.GetComponent<Blocks>().blockReferencing == dataManager.blockSelected)
         {
@@ -101,6 +103,8 @@ public class GridMenu : MonoBehaviour
         }
         else
         {
+            currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
+
             //get the row/column of the current grid object 
             if (row - height + 1 >= 0 && column - width + 1 >= 0)
             {
@@ -109,13 +113,11 @@ public class GridMenu : MonoBehaviour
                 {
                     GameObject instance = dataManager.gridMenu.instances[row - i, column];
                     instance.GetComponent<Image>().sprite = dataManager.lastClickedSprites[i];
-                    instance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
                 }
                 for (int i = 0; i < width; i++)
                 {
-                    GameObject instance = dataManager.gridMenu.instances[row, column - i];
+                    GameObject instance = dataManager.gridMenu.instances[row, column + i];
                     instance.GetComponent<Image>().sprite = dataManager.lastClickedSprites[i];
-                    instance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
                 }
 
             }
