@@ -21,7 +21,7 @@ public class ProjectileLauncher : MonoBehaviour
 
         if (transform.parent.transform.position.x > center.x)
         {
-            aimAngle += 180;
+            aimAngle += aimAngle * 2;
             spawnReference.transform.localPosition = new Vector3(-spawnReference.transform.localPosition.x, spawnReference.transform.localPosition.y, spawnReference.transform.localPosition.z);
         } 
          
