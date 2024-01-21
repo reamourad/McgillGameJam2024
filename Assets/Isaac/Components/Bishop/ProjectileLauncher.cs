@@ -17,7 +17,7 @@ public class ProjectileLauncher : MonoBehaviour
         GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         Vector3 center = (gm.attackersPosition.position + gm.defendersPosition.position)/ 2;
 
-        if (transform.position.x > center.x)
+        if (transform.parent.transform.position.x > center.x)
         {
             aimAngle += 180;
             spawnReference.transform.localPosition = new Vector3(-spawnReference.transform.localPosition.x, spawnReference.transform.localPosition.y, spawnReference.transform.localPosition.z);
