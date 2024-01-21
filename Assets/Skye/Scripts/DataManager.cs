@@ -8,10 +8,8 @@ public class DataManager : MonoBehaviour
     public GameObject blockSelectingButton;
     public GameObject[] blocks;
 
-    public GameObject [] whiteAttacking;
-    public GameObject[] blackAttacking;
-    public GameObject[] whiteDefending;
-    public GameObject[] blackDefending;
+    public GameObject[] AttackFilters;
+    public GameObject[] DefendFilters;
 
     public float [] blockHealth;
     public float[] blockPoint;

@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   row: 5
-  col: 10
+  col: 5
   originalPosition: {x: -2.5, y: 2.5, z: 0}
   dataManager: {fileID: 0}
   prefab: {fileID: 1153228009388491523, guid: 92bb063da3257e94fb312e040e7fa261, type: 3}
@@ -785,6 +785,7 @@ MonoBehaviour:
   canvas: {fileID: 7372623306577371830}
   gridSpacing: 1.02
   warningText: {fileID: 1748740115618441461}
+  blocksMenu: {fileID: 7372623306311578083}
   isDefending: 0
 --- !u!1 &7372623306311578085
 GameObject:
@@ -834,6 +835,7 @@ MonoBehaviour:
   col: 8
   originalPosition: {x: -7, y: 4, z: 0}
   dataManager: {fileID: 0}
+  filters: []
 --- !u!1 &7372623306577371835
 GameObject:
   m_ObjectHideFlags: 0

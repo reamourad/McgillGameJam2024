@@ -78,6 +78,11 @@ public class GameManager : MonoBehaviour
                     {
                         child.GetComponent<GridMenu>().isDefending = true;
                     }
+
+                    if (child.transform.name == "Block menu")
+                    {
+                        child.GetComponent<BlocksMenu>().isDefending = true;
+                    }
                 }
             }
 

@@ -12,6 +12,9 @@ public class BlocksMenu : MonoBehaviour
     public Vector3 originalPosition; 
     public GameObject[,] instances;
     public DataManager dataManager;
+    public GameObject[] filters;
+
+    public bool isDefending;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,16 +40,43 @@ public class BlocksMenu : MonoBehaviour
         {
             for(int j = 0; j < col; j++)
             {
+
                 GameObject instance = Instantiate(dataManager.blockSelectingButton);
+                
                 //check if they have a special icon
                 if (dataManager.blocks[indexBlock].GetComponent<Dimensions>().icon)
                 {
                     instance.GetComponent<Image>().sprite = dataManager.blocks[indexBlock].GetComponent<Dimensions>().icon;
+
+                    if (dataManager.blocks[indexBlock].GetComponent<Dimensions>().icon.name.Contains("ing") &! isDefending)
+                    {
+                        Destroy(instance);
+                    }
+
+                    if (dataManager.blocks[indexBlock].GetComponent<Dimensions>().icon.name.Contains("heel") && isDefending)
+                    {
+                        Destroy(instance);
+                    }
+                    if (dataManager.blocks[indexBlock].GetComponent<Dimensions>().icon.name.Contains("ocket") && isDefending)
+                    {
+                        Destroy(instance);
+                    }
+
                 }
                 else
                 {
                     instance.GetComponent<Image>().sprite = dataManager.blocks[indexBlock].GetComponent<SpriteRenderer>().sprite;
+
+                    if (dataManager.blocks[indexBlock].GetComponent<SpriteRenderer>().sprite.name.Contains("heel") && isDefending)
+                    {
+                        Destroy(instance);
+                    }
+                    if (dataManager.blocks[indexBlock].GetComponent<SpriteRenderer>().sprite.name.Contains("ocket") && isDefending)
+                    {
+                        Destroy(instance);
+                    }
                 }
+
                 instance.GetComponent<Blocks>().costText.text = dataManager.blocks[indexBlock].GetComponent<Dimensions>().cost.ToString(); 
                 //increment block indeces
                 instance.GetComponent<Blocks>().row = i;

@@ -19,6 +19,8 @@ public class GridMenu : MonoBehaviour
     public Canvas canvas; 
     public float gridSpacing;
     public GameObject warningText;
+    public BlocksMenu blocksMenu;
+
 
     bool placedKing;
 
