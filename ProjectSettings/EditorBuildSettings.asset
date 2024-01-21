@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Isaac/Loop/GamePlayLoop.unity
     guid: 0c888ae69401a9c4eadc9383e82369c3
+  - enabled: 1
+    path: Assets/Isaac/Loop/end.unity
+    guid: 6566d5de36a8eba499e37ec4904e0654
   m_configObjects: {}

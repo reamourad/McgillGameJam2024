@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public Camera mainCamera;
-
+    public DataManager data;
 
     public Transform attackersPosition;
     public Transform defendersPosition;
@@ -31,8 +32,8 @@ public class GameManager : MonoBehaviour
     bool showUI;
 
     [HideInInspector] public bool isPlayer1 = true;
-    [HideInInspector] public float scorePlayer1 = 0;
-    [HideInInspector] public float scorePlayer2 = 0;
+    [HideInInspector] public static float scorePlayer1 = 0;
+    [HideInInspector] public static float scorePlayer2 = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +59,13 @@ public class GameManager : MonoBehaviour
 
             currCanva.GetComponent<Canvas>().worldCamera = mainCamera;
             showUI = false;
+
+            if (stage == 1 || stage == 4)
+            {
+                GridMenu grid = GameObject.Find("Grid menu").GetComponent<GridMenu>();
+                grid.isDefending = true;
+                Debug.Log("DEFENDING!!");
+            }
 
             mainCamera.orthographicSize = (int)mainCamera.orthographicSize;
         } else
@@ -90,8 +98,11 @@ public class GameManager : MonoBehaviour
 
     public void proceedToNextStage()
     {
-        Debug.Log(stage);
-        roundText.text = roundDisplay[stage];
+        Debug.Log("stage is: " + stage);
+        if (stage < 6)
+        {
+            roundText.text = roundDisplay[stage];
+        }
 
         roundText.transform.parent.gameObject.SetActive(true);
         if (stage == 1 || stage == 4)
@@ -100,11 +111,19 @@ public class GameManager : MonoBehaviour
         }
         else if (stage == 0 || stage == 3)
         {
+            if (stage == 3)
+            {
+                isPlayer1 = false;
+            }
             Invoke("setDefending", 3f);
 
         } else if (stage == 2 || stage == 5)
         {
             Invoke("setCamMiddle",3f);
+        }
+        else if (stage == 6)
+        {
+            SceneManager.LoadScene("end");
         }
 
         if (stage != 0)
