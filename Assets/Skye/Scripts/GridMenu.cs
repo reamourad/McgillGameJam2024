@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 using static UnityEngine.Rendering.DebugUI.Table;
 
 public class GridMenu : MonoBehaviour
@@ -76,6 +75,7 @@ public class GridMenu : MonoBehaviour
 
                     obj.AddComponent<HealthComponent>();
                     obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
+                    obj.GetComponent<HealthComponent>().value = dataManager.blockPoint[index];
                 }
                 index_j += 1.5f;
             }
@@ -85,6 +85,13 @@ public class GridMenu : MonoBehaviour
 
         objectParent.AddComponent<StickComponents>();
         objectParent.GetComponent<StickComponents>().stickChildren();
+        objectParent.SetActive(false);
+
+        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gm.parentListing.Add(objectParent.transform);
+        gm.proceedToNextStage();
+
+
     }
 
     void onGridClick()
@@ -103,15 +110,55 @@ public class GridMenu : MonoBehaviour
         //rotate blocks
         if (currentInstance.GetComponent<Blocks>().blockReferencing == dataManager.blockSelected)
         {
-            currentInstance.transform.eulerAngles = new Vector3(0, 0, currentInstance.transform.eulerAngles.z - 90);
+            bool shouldRot = true;
+            for (int i = 0; i < dataManager.nonRotatables.Length; i ++)
+            {
+                if (dataManager.blockSelected == dataManager.nonRotatables[i])
+                {
+                    shouldRot = false;
+                    break;
+                }
+            }
+
+            if (shouldRot)
+            {
+                currentInstance.transform.eulerAngles = new Vector3(0, 0, currentInstance.transform.eulerAngles.z - 90);
+            }
+
         }
         else
         {
+
+            if (currentInstance.GetComponent<Blocks>().blockReferencing != null)
+            {
+                moneyManager.updateMoney(-1 * currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost);
+            }
             currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
             moneyManager.updateMoney(currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost);
             //get the row/column of the current grid object 
             if (row - height + 1 >= 0 && column - width + 1 >= 0)
             {
+                int oldCost = 0;
+                if (currentInstance.GetComponent<Blocks>().blockReferencing != null)
+                {
+                    oldCost = currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost;
+                }
+                Debug.Log("Current: " + moneyManager.currentMoney);
+                Debug.Log("Old: " + oldCost);
+                Debug.Log("Present: " + dataManager.blockSelected.GetComponent<Dimensions>().cost);
+                //Debug.Log("Equation: " + (moneyManager.currentMoney - oldCost + dataManager.blockSelected.GetComponent<Dimensions>().cost));
+                int price = moneyManager.currentMoney + oldCost - dataManager.blockSelected.GetComponent<Dimensions>().cost;
+                Debug.Log(price);
+                if (price > 0)
+                {
+                    moneyManager.updateMoney(price); 
+                }
+                else
+                {
+                    return;
+                }
+                
+                currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
                 //set blocks based on their height 
                 for (int i = 0; i < height; i++)
                 {

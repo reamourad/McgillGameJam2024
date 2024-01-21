@@ -9,9 +9,12 @@ public class DataManager : MonoBehaviour
     public GameObject[] blocks;
     public GameObject[] blocks_white;
     public float [] blockHealth;
+    public float[] blockPoint;
+
     public int initialMoney; 
     public Sprite[] lastClickedSprites;
     public GameObject blockSelected;
+    public GameObject[] nonRotatables;
     public GridMenu gridMenu; 
     // Start is called before the first frame update
     void Start()

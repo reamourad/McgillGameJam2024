@@ -48,7 +48,7 @@ public class ProjectileMovement : MonoBehaviour
             collision.gameObject.GetComponent<HealthComponent>().takeDamage(damage);
         }
 
-        Invoke("destroyProjectile", 0.5f);
+        Destroy(gameObject);
     }
 
     public void enableStructureBreak(GameObject obj)
@@ -65,9 +65,5 @@ public class ProjectileMovement : MonoBehaviour
 
     }
 
-    public void destroyProjectile()
-    {
-        Destroy(gameObject);
-    }
 
 }

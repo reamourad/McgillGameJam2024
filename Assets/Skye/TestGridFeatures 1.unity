@@ -805,15 +805,19 @@ MonoBehaviour:
   - {fileID: 7823155090755333476, guid: 9ddba7f38b580cb42af5d54bcd4e3ac8, type: 3}
   - {fileID: 6637950185380917900, guid: 83ff1858ce3d2f4488ab0adee2c20b07, type: 3}
   - {fileID: 1278977942150764502, guid: 5c87cfe076c0c6c4fb30d19c3f182a72, type: 3}
-  - {fileID: 3934384529265062771, guid: e273a0908e4fe6d4a9c167be46436555, type: 3}
+  - {fileID: 7823155090755333476, guid: 7cf2517160979804aaef98b112e3bae1, type: 3}
   - {fileID: 5741716934694201052, guid: 9a1e50d7ba7b0924aaecde8d16ef6fc3, type: 3}
+  - {fileID: 8660088128738647630, guid: 0ca8159779a460d4fb7125c06f1c175b, type: 3}
+  - {fileID: 7823155090755333476, guid: bc80431a166dd654780f100481b00b69, type: 3}
+  - {fileID: 7823155090755333476, guid: d30cc331ca0153b4290b69683292832b, type: 3}
   blockHealth:
   - 3
   - 2
   - 1
   - 2
   - 5
-  initialMoney: 200
+  blockPoint: []
+  initialMoney: 50
   lastClickedSprites: []
   blockSelected: {fileID: 0}
   gridMenu: {fileID: 450980299}
@@ -1330,7 +1334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataManager: {fileID: 965142021}
-  currentMoney: 200
+  currentMoney: 50
   tmp: {fileID: 1733540874}
 --- !u!114 &1733540874
 MonoBehaviour:
@@ -1494,6 +1498,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   row: 1
-  col: 5
+  col: 8
   originalPosition: {x: -7, y: 4, z: 0}
   dataManager: {fileID: 965142021}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7823155090755333475}
   - component: {fileID: 6491095689808079960}
   m_Layer: 0
-  m_Name: BigBlock
+  m_Name: Metal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f4fb9e8a208a3be47821f69ea3fa3d82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f8fabb62668d9b4b833f1c8db78cc26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,7 +104,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 5}
+    oldSize: {x: 4.98, y: 4.98}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,7 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   height: 1
-  width: 2
+  width: 1
+  cost: 1
   arrayOfSprites:
-  - {fileID: 1195304721, guid: 6f2bf547507f011478749ece881ae75d, type: 3}
-  - {fileID: -93976790, guid: 6f2bf547507f011478749ece881ae75d, type: 3}
+  - {fileID: 21300000, guid: 3f8fabb62668d9b4b833f1c8db78cc26, type: 3}
+  icon: {fileID: 0}
