@@ -153,3 +153,5 @@ MonoBehaviour:
   - {fileID: 1685603335, guid: 43a61574777df4e46b105106ba516a5f, type: 3}
   - {fileID: 2043348089, guid: 43a61574777df4e46b105106ba516a5f, type: 3}
   icon: {fileID: 2043348089, guid: 43a61574777df4e46b105106ba516a5f, type: 3}
+  description: 
+  canSpawn: 0

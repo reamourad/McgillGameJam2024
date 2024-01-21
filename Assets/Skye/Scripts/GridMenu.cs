@@ -101,7 +101,8 @@ public class GridMenu : MonoBehaviour
             {
                 if (instances[i, j].GetComponent<Blocks>().blockReferencing != null)
                 {
-                    if(instances[i, j].GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().canSpawn)
+                    //Debug.Log(instances[i, j].GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().canSpawn); 
+                    if(instances[i, j].GetComponent<Blocks>().canSpawn)
                     {
                         GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, new Vector3(originalPosition.x + index_j, originalPosition.y + index_i), instances[i, j].transform.rotation);
                         obj.transform.parent = objectParent.transform;
@@ -224,8 +225,8 @@ public class GridMenu : MonoBehaviour
                 }
 
                 currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
+                //currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().canSpawn = false;
 
-                currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().canSpawn = true;
 
                 //set blocks based on their height 
                 for (int i = 0; i < height; i++)
@@ -233,16 +234,10 @@ public class GridMenu : MonoBehaviour
                     GameObject instance = dataManager.gridMenu.instances[row - i, column];
                     instance.GetComponent<Image>().sprite = dataManager.lastClickedSprites[i];
                     instance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
-
-
-
+                    instance.GetComponent<Blocks>().canSpawn = false;
                 }
-                for (int i = 0; i < width; i++)
-                {
-                    GameObject instance = dataManager.gridMenu.instances[row, column + i];
-                    instance.GetComponent<Image>().sprite = dataManager.lastClickedSprites[i];
-                    instance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
-                }
+
+                currentInstance.GetComponent<Blocks>().canSpawn = true;
 
             }
         }
