@@ -10,6 +10,7 @@ public class Dimensions : MonoBehaviour
     public Sprite[] arrayOfSprites;
     public Sprite icon;
     public string description;
+    public bool canSpawn = false;
     // Start is called before the first frame update
     void Start()
     {

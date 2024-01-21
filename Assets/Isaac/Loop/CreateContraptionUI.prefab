@@ -705,6 +705,7 @@ MonoBehaviour:
   dataManager: {fileID: 0}
   prefab: {fileID: 1153228009388491523, guid: 92bb063da3257e94fb312e040e7fa261, type: 3}
   moneyManager: {fileID: 3935352367513713624}
+  isBlack: 1
   canvas: {fileID: 7372623306577371830}
   gridSpacing: 1.02
 --- !u!1 &7372623306311578085
