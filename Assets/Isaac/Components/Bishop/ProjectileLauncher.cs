@@ -14,7 +14,17 @@ public class ProjectileLauncher : MonoBehaviour
 
     void Start()
     {
+        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        Vector3 center = (gm.attackersPosition.position + gm.defendersPosition.position)/ 2;
+
+        if (transform.position.x > center.x)
+        {
+            aimAngle += 180;
+            spawnReference.transform.localPosition = new Vector3(-spawnReference.transform.localPosition.x, spawnReference.transform.localPosition.y, spawnReference.transform.localPosition.z);
+        } 
+         
         spawnReference.localEulerAngles = new Vector3(0, 0, -aimAngle); //assuming rotations are clockwise from the x axis
+        
     }
 
     public void Update()
