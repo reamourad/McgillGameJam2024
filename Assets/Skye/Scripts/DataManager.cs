@@ -7,10 +7,10 @@ public class DataManager : MonoBehaviour
 {
     public GameObject blockSelectingButton;
     public GameObject[] blocks;
-    public GameObject[] blocks_white;
     public float [] blockHealth;
     public float[] blockPoint;
 
+    public int initialMoney; 
     public Sprite[] lastClickedSprites;
     public GameObject blockSelected;
     public GridMenu gridMenu; 

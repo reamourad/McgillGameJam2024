@@ -14,12 +14,17 @@ public class GridMenu : MonoBehaviour
     public GameObject[,] instances;
     public DataManager dataManager;
     public GameObject prefab;
+    public MoneyManager moneyManager;
 
     public Canvas canvas; 
     public float gridSpacing;
     // Start is called before the first frame update
     void Start()
     {
+        dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
+        dataManager.gridMenu = this;
+        originalPosition += Camera.main.transform.position;
+
         createGridMenu();
     }
 
@@ -104,7 +109,7 @@ public class GridMenu : MonoBehaviour
         else
         {
             currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
-
+            moneyManager.updateMoney(currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost);
             //get the row/column of the current grid object 
             if (row - height + 1 >= 0 && column - width + 1 >= 0)
             {
