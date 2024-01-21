@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     public TMP_Text timerText;
     float timer;
 
+    public TMP_Text playerOneScore;
+    public TMP_Text playerTwoScore;
+
     Canvas currCanva;
 
     public int stage = 1; //let us represent 1 = attacking set up, 2 = defense set up, 3 = watch them attack
@@ -52,9 +55,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this camera lerping is horrendous
+        playerOneScore.text = "White: " + scorePlayer1.ToString();
+        playerTwoScore.text = "Black: " + scorePlayer2.ToString();
+       //this camera lerping is horrendous
         if (showUI && Vector2.Distance(mainCamera.transform.position, targetPosition) < 0.5f)
         {
+            if (stage != 0 && currCanva != null)
+            {
+                Destroy(currCanva.gameObject);
+            }
+
             currCanva = Instantiate(UI, mainCamera.transform);
 
             currCanva.GetComponent<Canvas>().worldCamera = mainCamera;
@@ -62,9 +72,13 @@ public class GameManager : MonoBehaviour
 
             if (stage == 1 || stage == 4)
             {
-                GridMenu grid = GameObject.Find("Grid menu").GetComponent<GridMenu>();
-                grid.isDefending = true;
-                Debug.Log("DEFENDING!!");
+                foreach(Transform child in currCanva.transform)
+                {
+                    if (child.transform.name == "Grid menu")
+                    {
+                        child.GetComponent<GridMenu>().isDefending = true;
+                    }
+                }
             }
 
             mainCamera.orthographicSize = (int)mainCamera.orthographicSize;
@@ -124,11 +138,6 @@ public class GameManager : MonoBehaviour
         else if (stage == 6)
         {
             SceneManager.LoadScene("end");
-        }
-
-        if (stage != 0)
-        {
-            currCanva.enabled = false;
         }
 
         
