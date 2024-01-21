@@ -832,7 +832,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  initialMoney: 50
+  initialMoney: 200
   lastClickedSprites: []
   blockSelected: {fileID: 0}
   nonRotatables: []
