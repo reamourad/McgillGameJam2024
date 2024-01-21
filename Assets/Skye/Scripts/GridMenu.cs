@@ -17,6 +17,8 @@ public class GridMenu : MonoBehaviour
 
     public Canvas canvas; 
     public float gridSpacing;
+
+    public bool isDefending;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,26 +60,59 @@ public class GridMenu : MonoBehaviour
 
     public void spawnObjects()
     {
+        bool shouldAllowSpawn = false;
+
+        if (isDefending)
+        {
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    if (instances[i, j].GetComponent<Blocks>().blockReferencing != null)
+                    {
+                        if (instances[i, j].GetComponent<Blocks>().blockReferencing.gameObject.name.Contains("ing"))
+                        {
+                            shouldAllowSpawn = true;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        if (isDefending && shouldAllowSpawn == false)
+        {
+            Debug.Log("PLACE A KING");
+            return;
+        }
+
+
         float index_i = 0;
         float index_j = 0;
         canvas.enabled = false;
         GameObject objectParent = new GameObject();
         objectParent.gameObject.name = "Parent";
 
+
+
         for (int i = 0; i < row; i++)
         {
             for (int j = 0; j < col; j++)
             {
-                if (instances[i, j].GetComponent<Blocks>().blockReferencing != null && instances[i, j].GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().canSpawn)
+                if (instances[i, j].GetComponent<Blocks>().blockReferencing != null)
                 {
-                    GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, new Vector3(originalPosition.x + index_j, originalPosition.y + index_i), instances[i,j].transform.rotation);
-                    obj.transform.parent = objectParent.transform;
+                    if(instances[i, j].GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().canSpawn)
+                    {
+                        GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, new Vector3(originalPosition.x + index_j, originalPosition.y + index_i), instances[i, j].transform.rotation);
+                        obj.transform.parent = objectParent.transform;
 
-                    int index = System.Array.IndexOf(dataManager.blocks, instances[i, j].GetComponent<Blocks>().blockReferencing);
+                        int index = System.Array.IndexOf(dataManager.blocks, instances[i, j].GetComponent<Blocks>().blockReferencing);
 
-                    obj.AddComponent<HealthComponent>();
-                    obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
-                    obj.GetComponent<HealthComponent>().value = dataManager.blockPoint[index];
+                        obj.AddComponent<HealthComponent>();
+                        obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
+                        obj.GetComponent<HealthComponent>().value = dataManager.blockPoint[index];
+                    }
+                    
 
                 }
                 index_j += 1.5f;
