@@ -7,6 +7,7 @@ public class Blocks : MonoBehaviour
 {
     public int row;
     public int col;
+    public bool canSpawn; 
     public GameObject blockReferencing;
     public TMP_Text costText;
     // Start is called before the first frame update

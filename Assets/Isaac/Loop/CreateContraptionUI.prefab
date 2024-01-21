@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataManager: {fileID: 0}
-  currentMoney: 200
+  currentMoney: 100
   tmp: {fileID: 7370853432339453631}
 --- !u!1 &7372623305302547105
 GameObject:
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   row: 5
-  col: 10
+  col: 5
   originalPosition: {x: -2.5, y: 2.5, z: 0}
   dataManager: {fileID: 0}
   prefab: {fileID: 1153228009388491523, guid: 92bb063da3257e94fb312e040e7fa261, type: 3}
