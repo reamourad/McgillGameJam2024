@@ -1793,7 +1793,7 @@ MonoBehaviour:
   - 15
   - 90
   - 500
-  initialMoney: 200
+  initialMoney: 100
   lastClickedSprites: []
   blockSelected: {fileID: 0}
   nonRotatables:
@@ -2028,7 +2028,7 @@ PrefabInstance:
       objectReference: {fileID: 210512373}
     - target: {fileID: 2635504608290477247, guid: 751288925d44e384cb0c893ff6c1a35a, type: 3}
       propertyPath: turnTimer
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2635504608290477247, guid: 751288925d44e384cb0c893ff6c1a35a, type: 3}
       propertyPath: mainCamera
