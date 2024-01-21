@@ -1132,6 +1132,14 @@ MonoBehaviour:
   - 5
   - 2
   - 5
+  blockPoint:
+  - 1
+  - 1
+  - 8
+  - 1
+  - 5
+  - 3
+  - 10
   initialMoney: 200
   lastClickedSprites: []
   blockSelected: {fileID: 0}

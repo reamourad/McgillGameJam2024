@@ -5,6 +5,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public float turnTimer;
+    float timer;
 
 
     public Camera mainCamera;
@@ -29,8 +31,12 @@ public class GameManager : MonoBehaviour
 
     Canvas currCanva;
 
-    public int stage = 0; //let us represent 1 = attacking set up, 2 = defense set up, 3 = watch them attack
+    public int stage = 1; //let us represent 1 = attacking set up, 2 = defense set up, 3 = watch them attack
     bool showUI;
+
+    [HideInInspector] public bool isPlayer1 = true;
+    [HideInInspector] public float scorePlayer1 = 0;
+    [HideInInspector] public float scorePlayer2 = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -99,7 +105,7 @@ public class GameManager : MonoBehaviour
         {
             Invoke("setDefending", 3f);
 
-        } else if (stage == 2 || stage == 5)
+        if (timer > turnTimer)
         {
             StartCoroutine(setCamMiddle(3f));
             Time.timeScale = 0;
