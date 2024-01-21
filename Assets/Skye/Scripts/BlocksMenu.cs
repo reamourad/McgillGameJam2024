@@ -38,8 +38,15 @@ public class BlocksMenu : MonoBehaviour
             for(int j = 0; j < col; j++)
             {
                 GameObject instance = Instantiate(dataManager.blockSelectingButton);
-                instance.GetComponent<Image>().sprite= dataManager.blocks[indexBlock].GetComponent<SpriteRenderer>().sprite;
-                Debug.Log(instance.GetComponent<Blocks>().costText.text);
+                //check if they have a special icon
+                if (dataManager.blocks[indexBlock].GetComponent<Dimensions>().icon)
+                {
+                    instance.GetComponent<Image>().sprite = dataManager.blocks[indexBlock].GetComponent<Dimensions>().icon;
+                }
+                else
+                {
+                    instance.GetComponent<Image>().sprite = dataManager.blocks[indexBlock].GetComponent<SpriteRenderer>().sprite;
+                }
                 instance.GetComponent<Blocks>().costText.text = dataManager.blocks[indexBlock].GetComponent<Dimensions>().cost.ToString(); 
                 //increment block indeces
                 instance.GetComponent<Blocks>().row = i;

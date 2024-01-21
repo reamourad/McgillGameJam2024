@@ -7,7 +7,8 @@ public class Dimensions : MonoBehaviour
     public int height;
     public int width;
     public int cost;
-    public Sprite[] arrayOfSprites; 
+    public Sprite[] arrayOfSprites;
+    public Sprite icon; 
     // Start is called before the first frame update
     void Start()
     {

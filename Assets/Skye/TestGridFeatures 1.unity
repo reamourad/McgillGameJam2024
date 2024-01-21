@@ -807,12 +807,15 @@ MonoBehaviour:
   - {fileID: 1278977942150764502, guid: 5c87cfe076c0c6c4fb30d19c3f182a72, type: 3}
   - {fileID: 3934384529265062771, guid: e273a0908e4fe6d4a9c167be46436555, type: 3}
   - {fileID: 5741716934694201052, guid: 9a1e50d7ba7b0924aaecde8d16ef6fc3, type: 3}
+  - {fileID: 8660088128738647630, guid: 0ca8159779a460d4fb7125c06f1c175b, type: 3}
+  - {fileID: 7823155090755333476, guid: 7cf2517160979804aaef98b112e3bae1, type: 3}
   blockHealth:
   - 3
   - 2
   - 1
   - 2
   - 5
+  blockPoint: []
   initialMoney: 200
   lastClickedSprites: []
   blockSelected: {fileID: 0}
@@ -1494,6 +1497,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   row: 1
-  col: 5
+  col: 7
   originalPosition: {x: -7, y: 4, z: 0}
   dataManager: {fileID: 965142021}
