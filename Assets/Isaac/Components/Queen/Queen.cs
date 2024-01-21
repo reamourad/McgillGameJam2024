@@ -11,7 +11,7 @@ public class Queen : MonoBehaviour
     float time;
     LineRenderer laserBeamVFX;
 
-
+    public Transform laserStart;
     public Vector3 shootDirection;
 
     private void Start()
@@ -28,8 +28,8 @@ public class Queen : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        Vector3 laserStart = transform.position + shootDirection * 1.5f;
-        RaycastHit2D hit = Physics2D.Raycast(laserStart, shootDirection);
+        laserBeamVFX.SetPosition(0, laserStart.position);
+        RaycastHit2D hit = Physics2D.Raycast(laserStart.position, shootDirection);
 
         if (hit.collider != null)
         {
@@ -38,11 +38,13 @@ public class Queen : MonoBehaviour
                 hit.collider.gameObject.GetComponent<HealthComponent>().takeDamage(damage);
             }
 
-            laserBeamVFX.SetPosition(0, laserStart);
             laserBeamVFX.SetPosition(1, hit.point);
+
+            AudioManager.Instance.PlaySFX("QueenLaser");
+            
         } else
         {
-            laserBeamVFX.SetPosition(1, laserStart + shootDirection * 9999f);
+            laserBeamVFX.SetPosition(1, laserStart.position + shootDirection * 9999f);
         }
 
 

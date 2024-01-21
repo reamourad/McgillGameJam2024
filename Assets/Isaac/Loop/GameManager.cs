@@ -103,8 +103,7 @@ public class GameManager : MonoBehaviour
 
         } else if (stage == 2 || stage == 5)
         {
-            StartCoroutine(setCamMiddle(3f));
-            Time.timeScale = 0;
+            Invoke("setCamMiddle",3f);
         }
 
         if (stage != 0)
@@ -124,10 +123,8 @@ public class GameManager : MonoBehaviour
         stage++;
     }
 
-    IEnumerator setCamMiddle(float delay)
+    public void setCamMiddle()
     {
-        yield return new WaitForSecondsRealtime(delay);
-
         timerText.gameObject.SetActive(true);
         timer = turnTimer;
 
@@ -135,9 +132,9 @@ public class GameManager : MonoBehaviour
         targetSize = wideCameraSize;
 
         roundText.transform.parent.gameObject.SetActive(false);
-
+        
+        foreach (Transform p in parentListing) { p.gameObject.SetActive(true); }
         stage++;
-        Time.timeScale = 1;
     }
 
     public void setDefending()
