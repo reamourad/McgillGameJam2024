@@ -148,5 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 1
   width: 1
+  cost: 1
   arrayOfSprites:
   - {fileID: 21300000, guid: 34e1ddac8955d864b9dca3354b3033c1, type: 3}

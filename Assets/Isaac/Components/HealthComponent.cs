@@ -15,6 +15,7 @@ public class HealthComponent : MonoBehaviour
     public void takeDamage(float damage)
     {
         currHealth -= damage;
+        Debug.Log(currHealth);
 
         if (currHealth <= 0)
         {
@@ -22,7 +23,7 @@ public class HealthComponent : MonoBehaviour
         } else
         {
             GetComponent<SpriteRenderer>().color = new Color32(255, (byte) ((currHealth / maxHealth) * 255), (byte) ((currHealth / maxHealth) * 255), 255);
-            //Debug.Log( (currHealth/maxHealth) * 255);
+            Debug.Log( (currHealth/maxHealth) * 255);
         }
 
     }
