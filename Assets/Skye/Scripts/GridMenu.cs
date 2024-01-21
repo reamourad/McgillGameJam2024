@@ -106,8 +106,13 @@ public class GridMenu : MonoBehaviour
         {
             currentInstance.transform.eulerAngles = new Vector3(0, 0, currentInstance.transform.eulerAngles.z - 90);
         }
+
         else
         {
+            if(currentInstance.GetComponent<Blocks>().blockReferencing != null)
+            {
+                moneyManager.updateMoney(-1 * currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost);
+            }
             currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
             moneyManager.updateMoney(currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost);
             //get the row/column of the current grid object 
