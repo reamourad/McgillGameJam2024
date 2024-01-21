@@ -31,10 +31,13 @@ public class HealthComponent : MonoBehaviour
                 GameManager.scorePlayer2 += value;
                 Debug.Log("score is: " + GameManager.scorePlayer2);
             }
+
+            AudioManager.Instance.PlaySFX("PawnDeath");
+
         } else
         {
             GetComponent<SpriteRenderer>().color = new Color32(255, (byte) ((currHealth / maxHealth) * 255), (byte) ((currHealth / maxHealth) * 255), 255);
-            Debug.Log( (currHealth/maxHealth) * 255);
+            //Debug.Log( (currHealth/maxHealth) * 255);
         }
 
     }

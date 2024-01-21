@@ -41,6 +41,9 @@ public class ProjectileMovement : MonoBehaviour
                 Vector2 dir = (c.gameObject.transform.position - transform.position).normalized;
                 c.transform.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * explosionForce);
             }
+
+            AudioManager.Instance.PlaySFX("HolyHandGrenadeExplosion");
+
         }
 
         if (collision.gameObject.GetComponent<HealthComponent>() != null)

@@ -154,6 +154,8 @@ MonoBehaviour:
   arrayOfSprites:
   - {fileID: 21300000, guid: c67603c89daaa244697c8fa18894373f, type: 3}
   icon: {fileID: 21300000, guid: d5b9b9d4cb9f97a4b853836a367ef0a9, type: 3}
+  description: 
+  canSpawn: 0
 --- !u!114 &4981070444988148091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5061570478380736973, guid: e64828d97464dcc44979d77e5a159e94, type: 3}
   spawnReference: {fileID: 8837659806405032929}
+  sfxSource: HolyHandGrenadeThrow
   exitForce: 200
   aimAngle: 45
   fireRate: 5

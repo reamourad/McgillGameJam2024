@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     
     Vector3 targetPosition;
     float focusedCameraSize = 5f;
-    float wideCameraSize = 5f;
+    float wideCameraSize = 7f;
     float targetSize;
 
     public Canvas UI;
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
             if (timer > 0)
             {
                 timer -= Time.deltaTime;
-                timerText.text = ((Mathf.Round(timer * 100) / 100).ToString());
+                timerText.text = timer.ToString("F0");
             } else
             {
                 timer = turnTimer;
