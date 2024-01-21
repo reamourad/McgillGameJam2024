@@ -457,6 +457,7 @@ MonoBehaviour:
   originalPosition: {x: -2.5, y: 2.5, z: 0}
   dataManager: {fileID: 965142021}
   prefab: {fileID: 1153228009388491523, guid: 92bb063da3257e94fb312e040e7fa261, type: 3}
+  moneyManager: {fileID: 0}
   canvas: {fileID: 1592267208}
   gridSpacing: 1.02
 --- !u!1 &501643595
@@ -936,7 +937,6 @@ MonoBehaviour:
   - {fileID: 5741716934694201052, guid: 9a1e50d7ba7b0924aaecde8d16ef6fc3, type: 3}
   - {fileID: 6368810998976714994, guid: 558549cc17e46b243a7a862c337b144a, type: 3}
   - {fileID: 8660088128738647630, guid: 0ca8159779a460d4fb7125c06f1c175b, type: 3}
-  blocks_white: []
   blockHealth:
   - 3
   - 2
@@ -945,6 +945,15 @@ MonoBehaviour:
   - 5
   - 2
   - 5
+  blockPoint:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  initialMoney: 0
   lastClickedSprites: []
   blockSelected: {fileID: 0}
   gridMenu: {fileID: 450980299}
