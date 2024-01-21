@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     public TMP_Text timerText;
     float timer;
 
+    public TMP_Text playerOneScore;
+    public TMP_Text playerTwoScore;
+
     Canvas currCanva;
 
     public int stage = 1; //let us represent 1 = attacking set up, 2 = defense set up, 3 = watch them attack
@@ -52,7 +55,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this camera lerping is horrendous
+        playerOneScore.text = "White: " + scorePlayer1.ToString();
+        playerTwoScore.text = "Black: " + scorePlayer2.ToString();
+       //this camera lerping is horrendous
         if (showUI && Vector2.Distance(mainCamera.transform.position, targetPosition) < 0.5f)
         {
             if (stage != 0 && currCanva != null)
