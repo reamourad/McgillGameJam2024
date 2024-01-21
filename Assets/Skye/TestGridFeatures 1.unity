@@ -820,8 +820,19 @@ MonoBehaviour:
   - 1
   - 2
   - 5
-  blockPoint: []
-  initialMoney: 200
+  - 5
+  - 5
+  - 5
+  blockPoint:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  initialMoney: 50
   lastClickedSprites: []
   blockSelected: {fileID: 0}
   nonRotatables: []
