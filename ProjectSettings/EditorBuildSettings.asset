@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
+    path: Assets/Skye/TestGridFeatures 1.unity
+    guid: 3b0b07234491ed64f8590e220cba235b
+  - enabled: 0
     path: Assets/Phoebe/MainMenu.unity
     guid: 2b1e879fec2064cc5acb794341d7f6fe
   - enabled: 0
