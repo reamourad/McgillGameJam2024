@@ -810,6 +810,10 @@ MonoBehaviour:
   - {fileID: 8660088128738647630, guid: 0ca8159779a460d4fb7125c06f1c175b, type: 3}
   - {fileID: 7823155090755333476, guid: bc80431a166dd654780f100481b00b69, type: 3}
   - {fileID: 7823155090755333476, guid: d30cc331ca0153b4290b69683292832b, type: 3}
+  whiteAttacking: []
+  blackAttacking: []
+  whiteDefending: []
+  blackDefending: []
   blockHealth:
   - 3
   - 2
@@ -817,9 +821,10 @@ MonoBehaviour:
   - 2
   - 5
   blockPoint: []
-  initialMoney: 50
+  initialMoney: 200
   lastClickedSprites: []
   blockSelected: {fileID: 0}
+  nonRotatables: []
   gridMenu: {fileID: 450980299}
 --- !u!4 &965142022
 Transform:
