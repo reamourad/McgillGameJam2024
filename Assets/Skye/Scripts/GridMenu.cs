@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 using static UnityEngine.Rendering.DebugUI.Table;
 
 public class GridMenu : MonoBehaviour
@@ -139,6 +138,27 @@ public class GridMenu : MonoBehaviour
             //get the row/column of the current grid object 
             if (row - height + 1 >= 0 && column - width + 1 >= 0)
             {
+                int oldCost = 0;
+                if (currentInstance.GetComponent<Blocks>().blockReferencing != null)
+                {
+                    oldCost = currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost;
+                }
+                Debug.Log("Current: " + moneyManager.currentMoney);
+                Debug.Log("Old: " + oldCost);
+                Debug.Log("Present: " + dataManager.blockSelected.GetComponent<Dimensions>().cost);
+                //Debug.Log("Equation: " + (moneyManager.currentMoney - oldCost + dataManager.blockSelected.GetComponent<Dimensions>().cost));
+                int price = moneyManager.currentMoney + oldCost - dataManager.blockSelected.GetComponent<Dimensions>().cost;
+                Debug.Log(price);
+                if (price > 0)
+                {
+                    moneyManager.updateMoney(price); 
+                }
+                else
+                {
+                    return;
+                }
+                
+                currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
                 //set blocks based on their height 
                 for (int i = 0; i < height; i++)
                 {

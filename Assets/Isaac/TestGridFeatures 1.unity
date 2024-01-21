@@ -936,7 +936,6 @@ MonoBehaviour:
   - {fileID: 5741716934694201052, guid: 9a1e50d7ba7b0924aaecde8d16ef6fc3, type: 3}
   - {fileID: 6368810998976714994, guid: 558549cc17e46b243a7a862c337b144a, type: 3}
   - {fileID: 8660088128738647630, guid: 0ca8159779a460d4fb7125c06f1c175b, type: 3}
-  blocks_white: []
   blockHealth:
   - 3
   - 2
