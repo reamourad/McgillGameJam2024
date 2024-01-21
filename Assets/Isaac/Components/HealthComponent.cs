@@ -16,11 +16,21 @@ public class HealthComponent : MonoBehaviour
     public void takeDamage(float damage)
     {
         currHealth -= damage;
-        Debug.Log(currHealth);
+        //Debug.Log(currHealth);
 
         if (currHealth <= 0)
         {
             Destroy(gameObject);
+            if (GameObject.Find("GameManager").GetComponent<GameManager>().isPlayer1 == true)
+            {
+                GameObject.Find("GameManager").GetComponent<GameManager>().scorePlayer1 += value;
+                Debug.Log("score is: "+ GameObject.Find("GameManager").GetComponent<GameManager>().scorePlayer1);
+            }
+            else
+            {
+                GameObject.Find("GameManager").GetComponent<GameManager>().scorePlayer2 += value;
+                Debug.Log("score is: " + GameObject.Find("GameManager").GetComponent<GameManager>().scorePlayer2);
+            }
         } else
         {
             GetComponent<SpriteRenderer>().color = new Color32(255, (byte) ((currHealth / maxHealth) * 255), (byte) ((currHealth / maxHealth) * 255), 255);
