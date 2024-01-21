@@ -91,6 +91,7 @@ public class GridMenu : MonoBehaviour
         gm.parentListing.Add(objectParent.transform);
         gm.proceedToNextStage();
 
+
     }
 
     void onGridClick()

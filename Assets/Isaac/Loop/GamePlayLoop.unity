@@ -946,7 +946,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514612450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 5.3, z: 0}
+  m_LocalPosition: {x: 0.6, y: 5.3, z: 10}
   m_LocalScale: {x: 1.0110273, y: 1.0110273, z: 1.0110273}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1133,13 +1133,13 @@ MonoBehaviour:
   - 2
   - 5
   blockPoint:
-  - 1
-  - 1
-  - 8
-  - 1
   - 5
-  - 3
   - 10
+  - 30
+  - 50
+  - 30
+  - 5
+  - 90
   initialMoney: 200
   lastClickedSprites: []
   blockSelected: {fileID: 0}

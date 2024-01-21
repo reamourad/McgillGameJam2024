@@ -5,10 +5,6 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public float turnTimer;
-    float timer;
-
-
     public Camera mainCamera;
 
 
@@ -105,7 +101,7 @@ public class GameManager : MonoBehaviour
         {
             Invoke("setDefending", 3f);
 
-        if (timer > turnTimer)
+        } else if (stage == 2 || stage == 5)
         {
             StartCoroutine(setCamMiddle(3f));
             Time.timeScale = 0;
@@ -115,7 +111,6 @@ public class GameManager : MonoBehaviour
         {
             currCanva.enabled = false;
         }
-
     }
 
     public void setAttacking()
