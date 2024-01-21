@@ -14,12 +14,17 @@ public class GridMenu : MonoBehaviour
     public GameObject[,] instances;
     public DataManager dataManager;
     public GameObject prefab;
+    public MoneyManager moneyManager;
 
     public Canvas canvas; 
     public float gridSpacing;
     // Start is called before the first frame update
     void Start()
     {
+        dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
+        dataManager.gridMenu = this;
+        originalPosition += Camera.main.transform.position;
+
         createGridMenu();
     }
 
@@ -68,10 +73,10 @@ public class GridMenu : MonoBehaviour
                     obj.transform.parent = objectParent.transform;
 
                     int index = System.Array.IndexOf(dataManager.blocks, instances[i, j].GetComponent<Blocks>().blockReferencing);
-                    Debug.Log(index);
 
                     obj.AddComponent<HealthComponent>();
-                    //obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
+                    obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
+                    obj.GetComponent<HealthComponent>().value = dataManager.blockPoint[index];
                 }
                 index_j += 1.5f;
             }
@@ -81,6 +86,12 @@ public class GridMenu : MonoBehaviour
 
         objectParent.AddComponent<StickComponents>();
         objectParent.GetComponent<StickComponents>().stickChildren();
+
+        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gm.parentListing.Add(objectParent.transform);
+        gm.proceedToNextStage();
+
+
     }
 
     void onGridClick()
@@ -101,10 +112,15 @@ public class GridMenu : MonoBehaviour
         {
             currentInstance.transform.eulerAngles = new Vector3(0, 0, currentInstance.transform.eulerAngles.z - 90);
         }
+
         else
         {
+            if(currentInstance.GetComponent<Blocks>().blockReferencing != null)
+            {
+                moneyManager.updateMoney(-1 * currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost);
+            }
             currentInstance.GetComponent<Blocks>().blockReferencing = dataManager.blockSelected;
-
+            moneyManager.updateMoney(currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost);
             //get the row/column of the current grid object 
             if (row - height + 1 >= 0 && column - width + 1 >= 0)
             {
