@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class DataManager : MonoBehaviour
 {
     public GameObject blockSelectingButton;
-    public GameObject[] blocks;
+    public GameObject[] blocks_black;
+    public GameObject[] blocks_white;
     public float [] blockHealth;
 
     public Sprite[] lastClickedSprites;
