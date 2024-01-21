@@ -68,7 +68,6 @@ public class GridMenu : MonoBehaviour
                     obj.transform.parent = objectParent.transform;
 
                     int index = System.Array.IndexOf(dataManager.blocks, instances[i, j].GetComponent<Blocks>().blockReferencing);
-                    Debug.Log(index);
 
                     obj.AddComponent<HealthComponent>();
                     obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
