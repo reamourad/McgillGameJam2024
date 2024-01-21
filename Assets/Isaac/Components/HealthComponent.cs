@@ -23,13 +23,13 @@ public class HealthComponent : MonoBehaviour
             Destroy(gameObject);
             if (GameObject.Find("GameManager").GetComponent<GameManager>().isPlayer1 == true)
             {
-                GameObject.Find("GameManager").GetComponent<GameManager>().scorePlayer1 += value;
-                Debug.Log("score is: "+ GameObject.Find("GameManager").GetComponent<GameManager>().scorePlayer1);
+                GameManager.scorePlayer1 += value;
+                Debug.Log("score is: "+ GameManager.scorePlayer1);
             }
             else
             {
-                GameObject.Find("GameManager").GetComponent<GameManager>().scorePlayer2 += value;
-                Debug.Log("score is: " + GameObject.Find("GameManager").GetComponent<GameManager>().scorePlayer2);
+                GameManager.scorePlayer2 += value;
+                Debug.Log("score is: " + GameManager.scorePlayer2);
             }
         } else
         {

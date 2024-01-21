@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
     bool showUI;
 
     [HideInInspector] public bool isPlayer1 = true;
-    [HideInInspector] public float scorePlayer1 = 0;
-    [HideInInspector] public float scorePlayer2 = 0;
+    [HideInInspector] public static float scorePlayer1 = 0;
+    [HideInInspector] public static float scorePlayer2 = 0;
 
     // Start is called before the first frame update
     void Start()
