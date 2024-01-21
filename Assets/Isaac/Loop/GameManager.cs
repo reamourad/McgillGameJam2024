@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -89,8 +90,11 @@ public class GameManager : MonoBehaviour
 
     public void proceedToNextStage()
     {
-        Debug.Log(stage);
-        roundText.text = roundDisplay[stage];
+        Debug.Log("stage is: " + stage);
+        if (stage < 6)
+        {
+            roundText.text = roundDisplay[stage];
+        }
 
         roundText.transform.parent.gameObject.SetActive(true);
         if (stage == 1 || stage == 4)
@@ -99,11 +103,19 @@ public class GameManager : MonoBehaviour
         }
         else if (stage == 0 || stage == 3)
         {
+            if (stage == 3)
+            {
+                isPlayer1 = false;
+            }
             Invoke("setDefending", 3f);
 
         } else if (stage == 2 || stage == 5)
         {
             Invoke("setCamMiddle",3f);
+        }
+        else if (stage == 6)
+        {
+            SceneManager.LoadScene("end");
         }
 
         if (stage != 0)
