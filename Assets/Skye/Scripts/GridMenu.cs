@@ -99,16 +99,20 @@ public class GridMenu : MonoBehaviour
         {
             for (int j = 0; j < col; j++)
             {
-                if (instances[i, j].GetComponent<Blocks>().blockReferencing != null && instances[i, j].GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().canSpawn)
+                if (instances[i, j].GetComponent<Blocks>().blockReferencing != null)
                 {
-                    GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, new Vector3(originalPosition.x + index_j, originalPosition.y + index_i), instances[i,j].transform.rotation);
-                    obj.transform.parent = objectParent.transform;
+                    if(instances[i, j].GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().canSpawn)
+                    {
+                        GameObject obj = Instantiate(instances[i, j].GetComponent<Blocks>().blockReferencing, new Vector3(originalPosition.x + index_j, originalPosition.y + index_i), instances[i, j].transform.rotation);
+                        obj.transform.parent = objectParent.transform;
 
-                    int index = System.Array.IndexOf(dataManager.blocks, instances[i, j].GetComponent<Blocks>().blockReferencing);
+                        int index = System.Array.IndexOf(dataManager.blocks, instances[i, j].GetComponent<Blocks>().blockReferencing);
 
-                    obj.AddComponent<HealthComponent>();
-                    obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
-                    obj.GetComponent<HealthComponent>().value = dataManager.blockPoint[index];
+                        obj.AddComponent<HealthComponent>();
+                        obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
+                        obj.GetComponent<HealthComponent>().value = dataManager.blockPoint[index];
+                    }
+                    
 
                 }
                 index_j += 1.5f;
