@@ -9,6 +9,7 @@ public class DataManager : MonoBehaviour
     public GameObject[] blocks;
     public GameObject[] blocks_white;
     public float [] blockHealth;
+    public float[] blockPoint;
 
     public Sprite[] lastClickedSprites;
     public GameObject blockSelected;

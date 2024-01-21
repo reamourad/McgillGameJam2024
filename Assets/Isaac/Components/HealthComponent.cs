@@ -6,6 +6,7 @@ public class HealthComponent : MonoBehaviour
 {
     public float currHealth;
     public float maxHealth;
+    public float value;
 
     public void Start()
     {

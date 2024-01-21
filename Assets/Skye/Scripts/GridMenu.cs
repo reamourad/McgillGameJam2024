@@ -71,7 +71,8 @@ public class GridMenu : MonoBehaviour
                     Debug.Log(index);
 
                     obj.AddComponent<HealthComponent>();
-                    //obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
+                    obj.GetComponent<HealthComponent>().maxHealth = dataManager.blockHealth[index];
+                    obj.GetComponent<HealthComponent>().value = dataManager.blockPoint[index];
                 }
                 index_j += 1.5f;
             }
