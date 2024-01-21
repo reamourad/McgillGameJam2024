@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
             if (timer > 0)
             {
                 timer -= Time.deltaTime;
-                timerText.text = ((Mathf.Round(timer * 100) / 100).ToString());
+                timerText.text = timer.ToString("F0");
             } else
             {
                 timer = turnTimer;
