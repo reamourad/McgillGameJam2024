@@ -111,12 +111,26 @@ public class GridMenu : MonoBehaviour
         //rotate blocks
         if (currentInstance.GetComponent<Blocks>().blockReferencing == dataManager.blockSelected)
         {
-            currentInstance.transform.eulerAngles = new Vector3(0, 0, currentInstance.transform.eulerAngles.z - 90);
-        }
+            bool shouldRot = true;
+            for (int i = 0; i < dataManager.nonRotatables.Length; i ++)
+            {
+                if (dataManager.blockSelected == dataManager.nonRotatables[i])
+                {
+                    shouldRot = false;
+                    break;
+                }
+            }
 
+            if (shouldRot)
+            {
+                currentInstance.transform.eulerAngles = new Vector3(0, 0, currentInstance.transform.eulerAngles.z - 90);
+            }
+
+        }
         else
         {
-            if(currentInstance.GetComponent<Blocks>().blockReferencing != null)
+
+            if (currentInstance.GetComponent<Blocks>().blockReferencing != null)
             {
                 moneyManager.updateMoney(-1 * currentInstance.GetComponent<Blocks>().blockReferencing.GetComponent<Dimensions>().cost);
             }
