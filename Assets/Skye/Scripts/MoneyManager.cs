@@ -11,7 +11,9 @@ public class MoneyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tmp.text = dataManager.initialMoney.ToString(); 
+        dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
+        tmp.text = dataManager.initialMoney.ToString();
+        Debug.Log(dataManager.initialMoney.ToString());
     }
 
     public void updateMoney(int price)
