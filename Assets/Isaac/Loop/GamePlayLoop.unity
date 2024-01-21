@@ -1518,9 +1518,9 @@ MonoBehaviour:
   - 30
   - 50
   - 30
-  - 5
+  - 15
   - 90
-  - 100
+  - 500
   initialMoney: 200
   lastClickedSprites: []
   blockSelected: {fileID: 0}
