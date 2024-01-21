@@ -1526,6 +1526,7 @@ MonoBehaviour:
   blockSelected: {fileID: 0}
   nonRotatables:
   - {fileID: 8660088128738647630, guid: 0ca8159779a460d4fb7125c06f1c175b, type: 3}
+  - {fileID: 7823155090755333476, guid: 60ed1303b595544128b84e9682a774da, type: 3}
   gridMenu: {fileID: 0}
 --- !u!4 &2029835812
 Transform:
